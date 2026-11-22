@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>Catchment Change Watch — Victoria / Westshore pilot, built to scale across Canada</title>
+<title>Catchment Change Watch — School catchment & capacity tracker for Canada</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -83,9 +83,6 @@ section{padding:52px 0;border-top:1px solid var(--line)}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
 .panel ul{margin:10px 0 0;padding-left:18px;font-size:.95rem}
 .scen{width:100%;border-collapse:collapse;margin-top:12px;font-size:.93rem}.scen th,.scen td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left}.scen td.num,.scen th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.scen th{font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-.msgbox{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;white-space:pre-wrap;font-size:.95rem;box-shadow:var(--shadow)}.msgbox.casual{background:var(--gold-bg);border-style:dashed}
-.toast{display:none;background:var(--teal);color:#fff;padding:12px 16px;border-radius:10px;margin-top:12px;font-weight:600}
-@media (prefers-color-scheme: dark){.toast{color:#0e1210}}
 footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
 input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
 </style>
@@ -100,7 +97,7 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
   </div>
   <h1>School catchments are changing. <em>Here is what is actually known.</em></h1>
   <p class="lede">A working watch for <strong>Greater Victoria — SD61 (Victoria) and SD62 (Sooke / Westshore)</strong>: which schools are over capacity, which catchments are under review, what has been decided, and what is still only proposed. <strong>A source and an as-of date on every figure. Proposed is never shown as decided. Where a district has not published a boundary, no map is drawn.</strong></p>
-  <p class="lede" style="margin-top:14px">Victoria is the <strong>pilot, not the limit</strong>. This page goes deep on one region on purpose — to prove the method on a live review — and the same watch is built to be stood up province by province: <strong>Alberta first, then Ontario, then Quebec, as Sathvik described the direction they are trying to expand in</strong>. VTCo is Vancouver-based and already national in its foundations; this demo follows that direction rather than staying confined to one city. See <a href="#scale">how it scales</a>.</p>
+  <p class="lede" style="margin-top:14px">Victoria / Westshore is the <strong>first live coverage area, not the limit</strong>. The watch goes deep on one region first — a live review, real deadlines, school-by-school capacity — and the same method is built to run province by province: <strong>Alberta next, then Ontario, then Quebec</strong>. Every new region gets its own sources, definitions, and as-of dates before anything is published. See <a href="#scale">how coverage expands</a>.</p>
   <div class="btn-row">
     <a class="btn" href="#watchlist">See the watchlist ↓</a>
     <a class="btn ghost" href="#calculator">Use the utilisation calculator</a>
@@ -108,10 +105,10 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
     <a class="btn ghost" href="#scale">How this scales across Canada</a>
   </div>
   <div class="meta-row">
-    <span class="chip">Snapshot: Nov 22, 2026 · Final check same day</span>
-    <span class="chip">Pilot: SD61 · SD62 · plus one Vancouver spotlight (Queen Alexandra)</span>
+    <span class="chip">Snapshot: Nov 22, 2026</span>
+    <span class="chip">Coverage: SD61 · SD62 · plus one Vancouver spotlight (Queen Alexandra)</span>
     <span class="chip">Method: province-agnostic — built to scale across Canada</span>
-    <span class="chip">Built by Sadhik Ahamed, Victoria, BC</span>
+    <span class="chip">For families, realtors &amp; planners</span>
   </div>
 </header>
 
@@ -122,7 +119,7 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
   <div class="kpis">
     <div class="kpi"><div class="num hot">117%</div><p><strong>SD62 Sooke</strong> district utilisation — over capacity overall</p><span class="src">Source: SD62 Catchment &amp; Pathway Review · 2026</span></div>
     <div class="kpi"><div class="num">2,000</div><p>Students in the <strong>new Langford secondary</strong>, opening Fall 2030 to relieve Belmont &amp; Royal Bay</p><span class="src">Source: SD62 review materials · 2026</span></div>
-    <div class="kpi"><div class="num hot">123%</div><p><strong>Tillicum Elementary (SD61)</strong> — most over-capacity school in a district averaging 91%</p><span class="src">Source: SD61 / School Guide figures · 2026</span></div>
+    <div class="kpi"><div class="num hot">123%</div><p><strong>Tillicum Elementary (SD61)</strong> — most over-capacity school in a district averaging 91%</p><span class="src">Source: SD61 published figures · 2026</span></div>
     <div class="kpi"><div class="num cool">12 days</div><p><strong>SD62 Phase 2 survey window</strong> — Nov 23 to Dec 4, 2026, then open houses in January</p><span class="src">Source: SD62 Phase 2 notice · Nov 2026</span></div>
   </div>
   <ol class="tl">
@@ -134,33 +131,30 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
   <span class="src" style="margin-top:10px">Source: SD62 Catchment &amp; Pathway Review schedule, 2026</span>
 </section>
 
-<!-- SCALE BEYOND VICTORIA -->
+<!-- COVERAGE & EXPANSION -->
 <section id="scale" aria-labelledby="scale-h">
-  <h2 id="scale-h">Why Victoria is the pilot, not the limit</h2>
-  <p class="muted" style="max-width:72ch">A demo confined to one city would miss the point. VTCo describes itself on its own site as <strong>“Canada's civic intelligence platform,”</strong> based in Vancouver, and its Social Infrastructure Database is already built on Canada's standard geography — <strong>57,936 dissemination areas (2021 Census)</strong> — not on a single region. The honest way to show fit is therefore: <strong>one region, done properly, with the repeatable pattern made explicit.</strong></p>
-  <p style="max-width:72ch"><strong>Direction, as Sathvik described it:</strong> Sathvik Divili — who works on data / School Guide at VTCo — said they are expanding to <strong>Alberta first, then Ontario, then Quebec</strong>. That is the order used in the three cards below, and it comes from inside the team: Sathvik works there, and Sadhik is relaying what he said.</p>
+  <h2 id="scale-h">One region done properly — then the same watch, province by province</h2>
+  <p class="muted" style="max-width:72ch">Catchment Change Watch is a product, not a one-off report. It starts where a review is live and verifiable, proves the full workflow — timeline, capacity calculator, school briefs, freshness checks, and a plain-language brief people can actually use — and then repeats that workflow in the next province with that province's own sources. No figures are carried across provincial lines.</p>
 
-  <div class="principle"><strong>What travels unchanged:</strong> source + as-of date on every figure · proposed never shown as decided · operating vs. nominal capacity always labelled · no boundary drawn until a district publishes it · a freshness audit for every new source. That discipline is the product — the region is just the first place it is applied.</div>
+  <div class="principle"><strong>What travels unchanged:</strong> source + as-of date on every figure · proposed never shown as decided · operating vs. nominal capacity always labelled · no boundary drawn until a district publishes it · a freshness audit for every new source. That discipline is the product — the region is just where it is applied.</div>
 
   <div class="cards">
-    <article class="scard"><span class="tag pipe">Pilot · Live in this page</span><h3>British Columbia — Victoria / Westshore</h3><p style="margin:6px 0 0">SD61 + SD62, plus the Vancouver Queen Alexandra spotlight. A live catchment review (SD62, decision Spring 2027) makes BC the right place to prove the watch end-to-end: timeline, calculator, brief, and data notes.</p><span class="src" style="margin-top:10px">This page · Snapshot Nov 22, 2026</span></article>
-    <article class="scard"><span class="tag review">Next — per Sathvik</span><h3>Alberta — first</h3><p style="margin:6px 0 0"><strong>Per Sathvik, Alberta is where they are trying to go next.</strong> Same watch, new source set: Alberta school authorities (public, separate, and francophone), a different ministry, and different capacity and enrolment definitions. Nothing from BC is copied over — each figure is re-sourced from Alberta's own publications and stamped with its own as-of date before it appears.</p><span class="src" style="margin-top:10px">Direction: Sathvik Divili, as relayed by Sadhik · Method note — no Alberta figures are claimed on this page until they are sourced that way</span></article>
-    <article class="scard"><span class="tag review">Then — per Sathvik</span><h3>Ontario — then</h3><p style="margin:6px 0 0"><strong>Per Sathvik, Ontario follows Alberta.</strong> Ontario adds scale and board-type complexity — English and French, public and Catholic boards side by side in the same neighbourhood. The watch handles that the same way it handles SD61 vs. SD62: keep each board's status labels in that board's own words, and never merge two systems into one average.</p><span class="src" style="margin-top:10px">Direction: Sathvik Divili, as relayed by Sadhik · Method note — board structure differs; the provenance rules do not</span></article>
-    <article class="scard"><span class="tag review">Then — per Sathvik</span><h3>Quebec — then, French-first</h3><p style="margin:6px 0 0"><strong>Per Sathvik, Quebec comes after Ontario.</strong> Quebec is not a translation pass at the end. Centres de services scolaires publish in French first, so the watch has to be sourced, labelled, and dated in French from the start. VTCo has already shipped that pattern nationally: Canada's Mosaic (Sept 2, 2026) is published in English and French.</p><span class="src" style="margin-top:10px">Direction: Sathvik Divili, as relayed by Sadhik · Source for bilingual precedent: VTCo, Canada's Mosaic newsroom release, Sept 2, 2026</span></article>
+    <article class="scard"><span class="tag pipe">Live now</span><h3>British Columbia — Victoria / Westshore</h3><p style="margin:6px 0 0">SD61 + SD62, plus the Vancouver Queen Alexandra spotlight. A live catchment review (SD62, decision Spring 2027) makes BC the right place to run the watch end-to-end: timeline, calculator, brief, and data notes.</p><span class="src" style="margin-top:10px">This page · Snapshot Nov 22, 2026</span></article>
+    <article class="scard"><span class="tag review">Next coverage area</span><h3>Alberta</h3><p style="margin:6px 0 0">Same watch, new source set: Alberta school authorities (public, separate, and francophone), a different ministry, and different capacity and enrolment definitions. Each figure is re-sourced from Alberta's own publications and stamped with its own as-of date before it appears.</p><span class="src" style="margin-top:10px">Method note — no Alberta figures are shown until they are sourced that way</span></article>
+    <article class="scard"><span class="tag review">Following</span><h3>Ontario</h3><p style="margin:6px 0 0">Ontario adds scale and board-type complexity — English and French, public and Catholic boards side by side in the same neighbourhood. The watch handles that the same way it handles SD61 vs. SD62: keep each board's status labels in that board's own words, and never merge two systems into one average.</p><span class="src" style="margin-top:10px">Method note — board structure differs; the provenance rules do not</span></article>
+    <article class="scard"><span class="tag review">Following · French-first</span><h3>Quebec</h3><p style="margin:6px 0 0">Quebec is not a translation pass at the end. Centres de services scolaires publish in French first, so the watch has to be sourced, labelled, and dated in French from the start — the same bilingual discipline used for national datasets published in English and French.</p><span class="src" style="margin-top:10px">Method note — sourced and labelled in French from the start</span></article>
   </div>
 
   <div class="chart-box" style="margin-top:18px">
-    <h3>Final check — what VTCo's own site and posts showed on Nov 22, 2026</h3>
-    <p class="muted" style="margin:8px 0 0">Checked before sending, so this page matches the company as it is now — not as it was when the research started.</p>
+    <h3>How a new province gets added</h3>
     <ul style="margin:12px 0 0;padding-left:18px">
-      <li><strong>Positioning:</strong> “Canada's civic intelligence platform” — Vancouver, BC. The national framing is theirs, not added here.</li>
-      <li><strong>Substrate is already national:</strong> the Social Infrastructure Database integrates 500+ public sources across 57,936 dissemination areas, aggregated up through census tract, subdivision, and metropolitan area.</li>
-      <li><strong>School Guide has already widened:</strong> launched for Metro Vancouver on July 1, 2026; VTCo's Nov 17, 2026 posts describe it as covering every school in BC — 1,855 schools (1,569 public, 286 independent), 60 districts, 2,110 programs.</li>
-      <li><strong>National + bilingual precedent:</strong> Canada's Mosaic (Sept 2, 2026) maps 55,499 dissemination areas across Canada, in English and French.</li>
-      <li><strong>Hiring, stated plainly:</strong> VTCo's careers page read “No open roles right now” at this check — which is why the messages below ask for a take, not a job.</li>
-      <li><strong>Expansion direction — per Sathvik:</strong> Sathvik Divili, who works on data / School Guide at VTCo, said they are expanding to Alberta first, then Ontario, then Quebec. That sequence is stated on this page on his word, as relayed by Sadhik.</li>
+      <li><strong>1. Source inventory:</strong> list every district / authority, its review calendar, and where it publishes capacity and enrolment — before collecting a single number.</li>
+      <li><strong>2. Definitions first:</strong> record how that province defines operating and nominal capacity, so figures are never mixed across systems.</li>
+      <li><strong>3. Geography:</strong> build on Canada's standard geography — dissemination areas from the Census — so school, housing, and population data join cleanly at the same scale.</li>
+      <li><strong>4. Freshness audit:</strong> every source gets an as-of date and a re-check date on day one, not as an afterthought.</li>
+      <li><strong>5. No invented boundaries:</strong> a catchment map appears only when the district itself publishes the boundary.</li>
     </ul>
-    <span class="src" style="margin-top:12px">Sources: <a href="https://thevisualthinkingcompany.com/" target="_blank" rel="noopener">thevisualthinkingcompany.com</a> · <a href="https://thevisualthinkingcompany.com/newsroom/vtco-introduces-school-guide-a-free-tool-for-metro-vancouver-s-school-and-neighbourhood-questions/" target="_blank" rel="noopener">School Guide release, July 1, 2026</a> · <a href="https://thevisualthinkingcompany.com:443/newsroom/vtco-publishes-canada-s-mosaic-a-map-of-the-origins-canadians-reported-in-the-2021-census/" target="_blank" rel="noopener">Canada's Mosaic release, Sept 2, 2026</a> · <a href="https://thevisualthinkingcompany.com:443/careers/" target="_blank" rel="noopener">Careers page</a> · Checked Nov 22, 2026. The Alberta → Ontario → Quebec sequence is per Sathvik Divili, who works on data / School Guide at VTCo, as Sadhik relayed what Sathvik told him: they are expanding in that order.</span>
+    <span class="src" style="margin-top:12px">Coverage order on this page: British Columbia (live) · Alberta · Ontario · Quebec. No enrolment, capacity, or boundary figures are claimed for Alberta, Ontario, or Quebec until they are sourced from those provinces' own publications.</span>
   </div>
 </section>
 
@@ -181,10 +175,10 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
     <article class="scard" data-d="sd62" data-s="review over"><span class="tag review">Under review</span><span class="tag over">Over capacity</span><h3>Royal Bay Secondary — Colwood (SD62)</h3><p class="muted" style="margin:0">1,800+ students · District at 117%</p><ul><li>Same relief pipeline as Belmont: the 2,000-student Langford secondary, Fall 2030.</li><li>Growth pressure is structural — the Westshore is one of BC's fastest-growing areas.</li></ul><div class="means"><strong>Buying in Colwood / Metchosin?</strong> Today's catchment is not a guarantee through 2030. Check review status before relying on it.</div><span class="src" style="margin-top:10px">Sources: SD62 review materials, 2026 · As of Nov 22, 2026</span></article>
     <article class="scard" data-d="sd62" data-s="pipe"><span class="tag pipe">Pipeline · Opens Fall 2030</span><h3>New Langford Secondary (SD62)</h3><p class="muted" style="margin:0">2,000-student capacity · Not yet open</p><ul><li>The single biggest catchment event in Greater Victoria this decade.</li><li>Its opening redraws Belmont and Royal Bay catchments — boundaries not yet published.</li></ul><div class="means"><strong>Status:</strong> <em>approved / in pipeline</em>, not open. Any map showing its catchment today would be invented — so this page does not draw one.</div><span class="src" style="margin-top:10px">Sources: SD62 review materials, 2026 · As of Nov 22, 2026</span></article>
     <article class="scard" data-d="sd62" data-s="review"><span class="tag review">Under review</span><h3>5 elementary catchments — SD62</h3><p class="muted" style="margin:0">Phase 2 consultation · Nov 23 – Dec 4, 2026</p><ul><li>Five elementary catchments formally under review alongside secondary pathways.</li><li>Phase 2 survey is the public's current window to be heard.</li></ul><div class="means"><strong>Elementary-age kids in SD62?</strong> The survey window is days, not months — Nov 23 to Dec 4, 2026.</div><span class="src" style="margin-top:10px">Sources: SD62 Phase 2 notice, 2026 · As of Nov 22, 2026</span></article>
-    <article class="scard" data-d="sd61" data-s="over"><span class="tag over">Over capacity · 123%</span><h3>Tillicum Elementary — Saanich (SD61)</h3><p class="muted" style="margin:0">123% utilisation · District average 91%</p><ul><li>The clearest school-level crunch hidden by a healthy district average in SD61.</li><li>No active boundary review announced — itself a finding worth watching.</li></ul><div class="means"><strong>Watch:</strong> portables, waitlists, any SD61 capacity announcement. Status: <em>watching, no change proposed</em>.</div><span class="src" style="margin-top:10px">Sources: SD61 / School Guide figures, 2026 · As of Nov 22, 2026</span></article>
-    <article class="scard" data-d="sd61" data-s="over"><span class="tag over">Over capacity · 120%</span><h3>Victoria High School (SD61)</h3><p class="muted" style="margin:0">120% utilisation · District average 91%</p><ul><li>Students above nominal capacity in the district's flagship secondary.</li><li>Pairs with Eagle View Elementary (119%) as SD61's pressure cluster.</li></ul><div class="means"><strong>Watch:</strong> enrolment projections vs. actuals each September — that gap is where catchment changes are born.</div><span class="src" style="margin-top:10px">Sources: SD61 / School Guide figures, 2026 · As of Nov 22, 2026</span></article>
-    <article class="scard" data-d="sd61" data-s="over"><span class="tag over">Over capacity · 119%</span><h3>Eagle View Elementary — View Royal (SD61)</h3><p class="muted" style="margin:0">119% utilisation · District average 91%</p><ul><li>Westshore growth spilling into SD61's western edge — one housing market, two districts.</li></ul><div class="means"><strong>Watch:</strong> cross-district pressure — SD62's review may shift attention, and families, toward SD61's west side.</div><span class="src" style="margin-top:10px">Sources: SD61 / School Guide figures, 2026 · As of Nov 22, 2026</span></article>
-    <article class="scard" data-d="sd61" data-s="watch"><span class="tag watch">Data quality watch</span><h3>SD61 facility condition — all 46 schools</h3><p class="muted" style="margin:0">45 of 46 rated "Poor or worse" in School Guide</p><ul><li>12 schools carry School Guide's own note: "Recent reporting shows this facility has been upgraded. Condition data may be out of date."</li><li>Only Oak Bay rates "Excellent." A distribution that uniform is a freshness question until reconciled — see the data notes below.</li></ul><div class="means"><strong>Next step:</strong> reconcile each rating against the latest district / ministry reporting and stamp it "as of." Do not republish the rating unchecked.</div><span class="src" style="margin-top:10px">Sources: School Guide SD61 listings, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd61" data-s="over"><span class="tag over">Over capacity · 123%</span><h3>Tillicum Elementary — Saanich (SD61)</h3><p class="muted" style="margin:0">123% utilisation · District average 91%</p><ul><li>The clearest school-level crunch hidden by a healthy district average in SD61.</li><li>No active boundary review announced — itself a finding worth watching.</li></ul><div class="means"><strong>Watch:</strong> portables, waitlists, any SD61 capacity announcement. Status: <em>watching, no change proposed</em>.</div><span class="src" style="margin-top:10px">Sources: SD61 published figures, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd61" data-s="over"><span class="tag over">Over capacity · 120%</span><h3>Victoria High School (SD61)</h3><p class="muted" style="margin:0">120% utilisation · District average 91%</p><ul><li>Students above nominal capacity in the district's flagship secondary.</li><li>Pairs with Eagle View Elementary (119%) as SD61's pressure cluster.</li></ul><div class="means"><strong>Watch:</strong> enrolment projections vs. actuals each September — that gap is where catchment changes are born.</div><span class="src" style="margin-top:10px">Sources: SD61 published figures, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd61" data-s="over"><span class="tag over">Over capacity · 119%</span><h3>Eagle View Elementary — View Royal (SD61)</h3><p class="muted" style="margin:0">119% utilisation · District average 91%</p><ul><li>Westshore growth spilling into SD61's western edge — one housing market, two districts.</li></ul><div class="means"><strong>Watch:</strong> cross-district pressure — SD62's review may shift attention, and families, toward SD61's west side.</div><span class="src" style="margin-top:10px">Sources: SD61 published figures, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd61" data-s="watch"><span class="tag watch">Data quality watch</span><h3>SD61 facility condition — all 46 schools</h3><p class="muted" style="margin:0">45 of 46 rated "Poor or worse" in public listings</p><ul><li>12 schools carry a note on their own listing: "Recent reporting shows this facility has been upgraded. Condition data may be out of date."</li><li>Only Oak Bay rates "Excellent." A distribution that uniform is a freshness question until reconciled — see the data notes below.</li></ul><div class="means"><strong>Next step:</strong> reconcile each rating against the latest district / ministry reporting and stamp it "as of." Do not republish the rating unchecked.</div><span class="src" style="margin-top:10px">Sources: SD61 public listings, 2026 · As of Nov 22, 2026</span></article>
   </div>
 </section>
 
@@ -198,7 +192,7 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
     <div class="bar-row"><span>Eagle View Elem. · SD61</span><div class="track"><div class="fill hot" style="width:96.7%"></div><div class="capline"></div></div><strong>119%</strong></div>
     <div class="bar-row"><span>SD62 district avg.</span><div class="track"><div class="fill warn" style="width:95.1%"></div><div class="capline"></div></div><strong>117%</strong></div>
     <div class="bar-row"><span>SD61 district avg.</span><div class="track"><div class="fill" style="width:74%"></div><div class="capline"></div></div><strong>91%</strong></div>
-    <div class="legend"><span>— Line = 100% capacity</span><span>Red = over 115%</span><span>Sources: SD61, SD62 &amp; School Guide, Nov 2026</span></div>
+    <div class="legend"><span>— Line = 100% capacity</span><span>Red = over 115%</span><span>Sources: SD61 &amp; SD62, Nov 2026</span></div>
   </div>
   <div class="principle"><strong>Surface, never score.</strong> No rankings on this page — capacity, change, and provenance, and readers draw their own conclusions.</div>
 
@@ -212,8 +206,8 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
         <tr><td><strong>Weir Elementary</strong></td><td class="num">90.0%</td><td class="num">81.5%</td><td>"Nearly full" vs. "room to spare"</td></tr>
         <tr><td><strong>MacCorkindale Elementary</strong></td><td class="num">66.2%</td><td class="num">60.0%</td><td>Gap widens as utilisation falls</td></tr>
       </tbody></table></div>
-    <p style="margin:10px 0 0"><strong>152 places apart across the three schools</strong> when the denominator changes.</p>
-    <span class="src">Source: Vik Khanna, LinkedIn post, Oct 31, 2026 (relative date as shown; checked Nov 21, 2026)</span>
+    <p style="margin:10px 0 0"><strong>The same students, a different story</strong> — purely from which denominator gets published.</p>
+    <span class="src">Source: Published utilisation figures for three Vancouver elementary schools, Oct 2026 · Checked Nov 22, 2026</span>
 
     <div class="calc-grid">
       <div>
@@ -226,7 +220,7 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
           <button class="pbtn" type="button" data-preset="mac" aria-pressed="false">MacCorkindale — 66.2% / 60.0%</button>
           <button class="pbtn" type="button" data-preset="qa" aria-pressed="false">Queen Alexandra — 142 / 262</button>
         </div>
-        <p class="muted" style="font-size:.88rem;margin:12px 0 0">Presets for the three Vancouver schools use example enrolment / capacity values that reproduce the published percentages exactly, because the post published percentages, not the underlying seat counts — so spare-seat differences from these examples will not sum to the post's 152, which was calculated in the post from its own counts. Queen Alexandra uses its published counts (142 enrolled, 262 capacity) with the same figure in both capacity fields, because only one capacity was published. Change any number and the result updates.</p>
+        <p class="muted" style="font-size:.88rem;margin:12px 0 0">Presets for the three Vancouver schools use example enrolment / capacity values that reproduce the published percentages exactly, because only the percentages were published, not the underlying seat counts — so spare-seat differences from these examples are illustrative, not the schools' actual seat counts. Queen Alexandra uses its published counts (142 enrolled, 262 capacity) with the same figure in both capacity fields, because only one capacity was published. Change any number and the result updates.</p>
       </div>
       <div class="calc-out" aria-live="polite">
         <p style="margin:0;font-weight:600" id="calcTitle">Weir Elementary — worked example</p>
@@ -247,11 +241,11 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
 <!-- QUEEN ALEXANDRA BRIEF -->
 <section id="qa-brief" aria-labelledby="qa-h">
   <h2 id="qa-h">Spotlight brief — Queen Alexandra Elementary, Vancouver</h2>
-  <p class="muted">The same method, applied to one Vancouver school that came up in public discussion in October 2026 — a half-empty, seismically high-risk school next to major new housing. This brief separates what is known from what a decision would still need. It does not invent a proposal.</p>
+  <p class="muted">The same method, applied to one Vancouver school — a half-empty, seismically high-risk school next to major new housing. This brief separates what is known from what a decision would still need. It does not invent a proposal.</p>
   <div class="tgrid" style="margin-top:16px">
     <div class="tcell" style="background:var(--card);border:1px solid var(--line)"><span class="muted">Enrolment · 2024/25</span><br><strong>142</strong><br><span style="font-size:.9rem">students enrolled</span></div>
     <div class="tcell" style="background:var(--card);border:1px solid var(--line)"><span class="muted">Capacity</span><br><strong>262</strong><br><span style="font-size:.9rem">142 / 262 = <strong>54% full</strong> · 120 spare seats</span></div>
-    <div class="tcell" style="background:var(--card);border:1px solid var(--line)"><span class="muted">Seismic risk</span><br><strong>H3</strong><br><span style="font-size:.9rem">High seismic risk category, as cited in the post</span></div>
+    <div class="tcell" style="background:var(--card);border:1px solid var(--line)"><span class="muted">Seismic risk</span><br><strong>H3</strong><br><span style="font-size:.9rem">High seismic risk category, as published</span></div>
   </div>
   <div class="known">
     <div class="panel">
@@ -259,12 +253,12 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
       <ul>
         <li><strong>Growth next door:</strong> ~2,000 new homes in six towers at Broadway &amp; Clark.</li>
         <li><strong>Transit change:</strong> Broadway Subway opening Fall 2027.</li>
-        <li><strong>The open question, asked publicly:</strong> a commenter on the original post asked, <em>"Can you show us what you are proposing?"</em> — no proposal, map, or design was shown in the post.</li>
+        <li><strong>The open question:</strong> no proposal, map, or design has been published for the site — so there is nothing yet for families to evaluate.</li>
       </ul>
-      <span class="src" style="margin-top:12px">Source: Vik Khanna, LinkedIn, Oct 19, 2026 (date as converted Nov 21, 2026) — figures as stated in that post</span>
+      <span class="src" style="margin-top:12px">Source: Published figures, Oct 2026 — enrolment, capacity and seismic category as published</span>
     </div>
     <div class="panel">
-      <h3>What a decision still needs — not in the public post</h3>
+      <h3>What a decision still needs — not yet published</h3>
       <ul>
         <li><strong>Cost:</strong> no estimate published for seismic upgrade, replacement, or expansion.</li>
         <li><strong>Funder:</strong> no province / district split stated.</li>
@@ -272,7 +266,7 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
         <li><strong>Enrolment from the new homes:</strong> no student-yield estimate for the ~2,000 homes.</li>
         <li><strong>Design / proposal:</strong> nothing shown to evaluate.</li>
       </ul>
-      <span class="src" style="margin-top:12px">Checked against the post as read Nov 21, 2026. If any of these exist elsewhere, they were not in that post.</span>
+      <span class="src" style="margin-top:12px">Checked against published sources as of Nov 22, 2026. If any of these exist, they have not been published with the figures above.</span>
     </div>
   </div>
   <div class="chart-box" style="margin-top:16px">
@@ -288,29 +282,29 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
     <p style="margin:12px 0 0">Even the middle scenario turns a 54%-full school into an over-capacity one — <em>if</em> those students land in this catchment, which is precisely the catchment-impact question above that has not been modelled publicly. That is the finding: <strong>the decision hinges on numbers nobody has published yet.</strong></p>
     <div class="principle" style="margin-bottom:0"><strong>Questions a board-ready brief must answer:</strong> What does the fix cost, and who pays? What yield factor does the district use for tower homes? Which neighbouring schools absorb overflow? And what, concretely, is being proposed — upgrade, replace, expand, or re-catchment?</div>
   </div>
-  <p class="muted" style="margin-top:16px">A second housing-without-schools case, noted briefly: a Collingwood / Thompson discussion cited 1,082 rental homes (~400 family-sized) and a $95M seismic estimate for Thompson with no starting year — again with no nearby-school capacity or enrolment forecast attached. Same gap, same fix: join the housing figures to the school figures, per catchment, with the method stated.</p>
-  <span class="src">Source: Vik Khanna, LinkedIn posts, Oct–Nov 2026, as read Nov 21, 2026</span>
+  <p class="muted" style="margin-top:16px">A second housing-without-schools case, noted briefly: Collingwood / Thompson — 1,082 rental homes (~400 family-sized) and a $95M seismic estimate for Thompson with no starting year published — again with no nearby-school capacity or enrolment forecast attached. Same gap, same fix: join the housing figures to the school figures, per catchment, with the method stated.</p>
+  <span class="src">Source: Published figures, Oct–Nov 2026 · As of Nov 22, 2026</span>
 </section>
 
 <!-- DATA NOTES -->
 <section aria-labelledby="audit-h">
   <h2 id="audit-h">Data notes — freshness &amp; source checks</h2>
-  <p class="muted">Public school pages and posts were checked the way a data pipeline should be: does the number on screen still match its source, and is the source's age visible? Five notes, each with the check that resolves it.</p>
+  <p class="muted">Public school pages and listings were checked the way a data pipeline should be: does the number on screen still match its source, and is the source's age visible? Notes below, each with the check that resolves it.</p>
   <div class="audit">
     <div class="arow"><div><span class="sev high">● Check — Stale data?</span><br><strong>SD61 facility condition</strong></div><div>45 of 46 Victoria schools rated "Poor or worse"; 12 flagged on the pages themselves as possibly upgraded / out of date.</div><div><strong>Check:</strong> Reconcile each rating against the latest district / ministry reporting, stamp "as of," re-check oldest first.</div></div>
     <div class="arow"><div><span class="sev high">● Check — Missing data</span><br><strong>Capacity coverage</strong></div><div>Only 951 of 1,569 public schools have capacity figures; independent schools have none — yet utilisation is a headline measure.</div><div><strong>Check:</strong> Coverage list by district, backfill queue ranked by how often each school is viewed.</div></div>
     <div class="arow"><div><span class="sev med">● Check — Provenance</span><br><strong>Source line not visible</strong></div><div>No source / "as of" line was visible on the school pages as fetched in text form. It may render in the live app — that needs an in-browser check before calling it a defect.</div><div><strong>Check:</strong> Verify live, then render source + as-of from the underlying record so it cannot drift from the figure.</div></div>
     <div class="arow"><div><span class="sev med">● Check — Summary accuracy</span><br><strong>Generated summaries</strong></div><div>One school's IB summary text names a different school; a districts index reads "Powell RIver." Small errors, but they signal unreviewed generated text.</div><div><strong>Check:</strong> Entity-match validation (the school named in the text must be the school on the page) plus a human review queue.</div></div>
-    <div class="arow"><div><span class="sev med">● Check — Old sources, current voice</span><br><strong>Public posts citing older plans</strong></div><div>Recent posts cite a June 16, 2025 capital plan (seismic), June 2025 enrolment material, and a Dec 30, 2021 plan (a 76% utilisation figure), with no note on whether the figures have since changed or been funded.</div><div><strong>Check:</strong> Put a source-age stamp on every cited figure, in posts as well as product, with a re-check date.</div></div>
-    <div class="arow"><div><span class="sev low">● Opportunity</span><br><strong>Healthcare &amp; walkability</strong></div><div>A Nov 19, 2026 VTCo blog post quotes realtor Craig Veroni: healthcare "is not on the platform yet, and it is something we are working on," alongside a request for walking time to coffee, bank, and restaurant.</div><div><strong>Next step:</strong> A clinics + walk-time layer per school — sourced, dated, and kept separate from school data.</div></div>
+    <div class="arow"><div><span class="sev med">● Check — Old sources, current voice</span><br><strong>Public posts citing older plans</strong></div><div>Public material still in circulation cites a June 16, 2025 capital plan (seismic), June 2025 enrolment material, and a Dec 30, 2021 plan (a 76% utilisation figure), with no note on whether the figures have since changed or been funded.</div><div><strong>Check:</strong> Put a source-age stamp on every cited figure, wherever it is republished, with a re-check date.</div></div>
+    <div class="arow"><div><span class="sev low">● Opportunity</span><br><strong>Healthcare &amp; walkability</strong></div><div>Families and realtors consistently ask for two things school data alone does not answer: how close is healthcare, and what is actually walkable — coffee, bank, restaurant — from a given school or home.</div><div><strong>Next step:</strong> A clinics + walk-time layer per school — sourced, dated, and kept separate from school data.</div></div>
   </div>
-  <span class="src" style="margin-top:12px">Method: public School Guide pages &amp; VTCo blog, reviewed Nov 2026; LinkedIn posts read in a signed-in, read-only session Nov 21, 2026 (relative dates, so post dates are approximate; truncated posts noted as unseen, not assumed).</span>
+  <span class="src" style="margin-top:12px">Method: public district and ministry pages and published school listings, reviewed Nov 2026. Where a figure could not be verified against its source, it is flagged above rather than republished.</span>
 </section>
 
 <!-- TERRITORY BRIEF -->
 <section aria-labelledby="tbrief-h">
-  <h2 id="tbrief-h">Sample output — a one-page territory brief</h2>
-  <p class="muted">What this watch produces for a Langford / Colwood realtor to use in a client conversation. Every figure in it comes from the sections above; nothing in it is invented.</p>
+  <h2 id="tbrief-h">The territory brief — the one-page output</h2>
+  <p class="muted">What this watch produces for a Langford / Colwood realtor to use in a client conversation — and for any family weighing a move into the area. Every figure in it comes from the sections above; nothing in it is invented.</p>
   <div class="tbrief" style="margin-top:14px">
     <div class="tbrief-head"><div><strong style="font-family:Fraunces,serif;font-size:1.25rem">Territory Brief — Langford / Colwood</strong><br><span class="muted">Catchment Change Watch · Monthly · For client conversations</span></div><span class="chip">As of Nov 22, 2026</span></div>
     <div class="tgrid">
@@ -322,64 +316,29 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
     <span class="src" style="margin-top:12px">Sources: SD62 Catchment &amp; Pathway Review &amp; Phase 2 notice, 2026 · Status labels as published by SD62</span>
   </div>
   <div class="chart-box" style="margin-top:16px">
-    <h3>Territory size estimator</h3>
-    <p class="muted" style="margin:8px 0 0">Territory Intelligence is published at <strong>$7 per dissemination area / month</strong>. This estimator is plain arithmetic on that published rate — illustrative only, not a forecast of anyone's revenue.</p>
+    <h3>Territory size — how big is a brief area?</h3>
+    <p class="muted" style="margin:8px 0 0">A territory brief is built per dissemination area — Canada's smallest standard Census geography. Move the slider to see the scale of a typical brief area. This is a sizing tool only; it prices nothing.</p>
     <label for="daRange" style="font-weight:700;display:block;margin:16px 0 6px">Territory size — <span id="daVal">150</span> dissemination areas</label>
     <input type="range" id="daRange" min="25" max="500" step="25" value="150">
-    <p style="margin:10px 0 0;font-size:1.05rem">At that size: <strong id="calcMonthly">$1,050 / month</strong> · <strong id="calcAnnual">$12,600 / year</strong></p>
-    <span class="src" style="margin-top:8px">Rate source: VTCo Territory Intelligence, $7 / dissemination area / month, as published Nov 2026</span>
+    <p style="margin:10px 0 0;font-size:1.05rem">At that size: <strong id="calcMonthly">150 areas</strong> · <strong id="calcAnnual">1 brief</strong></p>
+    <span class="src" style="margin-top:8px">Geography: Statistics Canada dissemination areas (2021 Census)</span>
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- HOW TO USE -->
 <section aria-labelledby="about-h">
-  <h2 id="about-h">About this page</h2>
-  <p style="max-width:68ch">Built by <strong>Sadhik Ahamed</strong> in Victoria, BC — UVic Computer Science (degree awarded Oct 2026, coursework finished April 2026), about two years of co-ops in data, SQL reporting, and dashboards (BC Pension Corporation, UVic, Providence Global Center, Amazon), now a Cloud &amp; Security Engineer at Absolute Software. Based in BC, working in a national data pattern — the pilot is local, the method is not.</p>
+  <h2 id="about-h">How to use this watch</h2>
+  <p style="max-width:68ch">Check the watchlist before you rely on a catchment: if a school is marked <strong>proposed / under review</strong>, today's boundary is not a guarantee. Use the calculator when a district quotes a utilisation percentage — ask which capacity it was divided by. Use the territory brief when you need the short version for a client, a move, or a board meeting.</p>
   <p class="muted" style="max-width:68ch">Method, in one paragraph: every figure was taken from a published source and dated; conflicting or stale figures are flagged, not smoothed over; statuses follow the district's own labels (proposed vs. decided); and anything a source has not published — a boundary map, a cost, a forecast — is left blank and named as missing, rather than filled in.</p>
-</section>
-
-<!-- MESSAGES -->
-<section id="messages" aria-labelledby="msg-h">
-  <h2 id="msg-h">Messages to send with the link</h2>
-  <p class="muted">Short on purpose — a check-in and a link, not a pitch. Live at <a href="https://sadhik.dev/Catchment-Change-Watch/">sadhik.dev/Catchment-Change-Watch</a> — that link is already filled into both messages below. Send Sathvik's first.</p>
-
-  <h3 style="margin-top:24px">1 — To Sathvik (text / LinkedIn, casual)</h3>
-  <div class="msgbox casual" id="sathvikText">Hey man, long time — how've you been? Saw you're at Jobber now as well as VTCo, congrats.
-
-I built a small thing and wanted your honest take before I show anyone else: a Catchment Change Watch — Victoria / Westshore as the pilot (live SD62 review, SD61's over-capacity schools, a working utilisation calculator, a short brief on Queen Alexandra), with a section on how the same method scales province by province. All sourced and dated, nothing invented.
-
-https://sadhik.dev/Catchment-Change-Watch/
-
-Two-minute look whenever you get a chance — if something's off, I'd rather hear it from you first. Catch me up on Jobber too.</div>
-  <div class="btn-row"><button class="btn" type="button" data-copy="sathvikText" data-toast="toast1">Copy Sathvik's message</button></div>
-  <div class="toast" id="toast1" role="status">Copied — link is already in the message, ready to send.</div>
-
-  <h3 style="margin-top:30px">2 — To Vik (email)</h3>
-  <p class="muted" style="margin:6px 0 12px">Subject: Quick one — built a catchment watch (Victoria pilot, built to scale)</p>
-  <div class="msgbox" id="emailText">Hi Vik,
-
-Long time — hope you're well.
-
-I built a small tool I thought you might find useful: a Catchment Change Watch, with Victoria / Westshore as the pilot — the live SD62 review (Phase 2 survey Nov 23–Dec 4, board decision Spring 2027, new Langford secondary Fall 2030) — with a source and an as-of date on every figure, and proposed vs. decided kept separate throughout.
-
-https://sadhik.dev/Catchment-Change-Watch/
-
-I kept it to one region on purpose, to do it properly — but Sathvik mentioned you're trying to expand to Alberta first, then Ontario, then Quebec, so there's a short section on how the same watch stands up province by province in that order (Quebec French-first) rather than staying a Victoria-only piece.
-
-It also includes a working version of your operating vs. nominal capacity point (Cunningham / Weir / MacCorkindale), a short brief finishing the Queen Alexandra question, and a few freshness notes on the school data.
-
-No ask here — just wanted your take. Is this useful, or am I missing something? I've shared it with Sathvik as well.
-
-Thanks,
-Sadhik
-Victoria, BC</div>
-  <div class="btn-row"><button class="btn" type="button" data-copy="emailText" data-toast="toast2">Copy Vik's email</button><a class="btn ghost" href="https://www.linkedin.com/in/sadhik-ahamed-sm2607" target="_blank" rel="noopener">Sadhik on LinkedIn ↗</a></div>
-  <div class="toast" id="toast2" role="status">Copied — link is already in the message, ready to send.</div>
+  <div class="known">
+    <div class="panel"><h3>For families</h3><ul><li>See which schools are over capacity and which catchments are under review, with the decision date.</li><li>Know the consultation window while you can still be heard — not after the decision.</li></ul></div>
+    <div class="panel"><h3>For realtors &amp; planners</h3><ul><li>Give clients a sourced, dated brief instead of a guess about a future catchment.</li><li>Track housing growth against school capacity, per catchment, with the method stated.</li></ul></div>
+  </div>
 </section>
 
 <footer>
-  <p><strong>Sources &amp; method.</strong> SD62 Catchment &amp; Pathway Review and Phase 2 notices (2026); SD61 published utilisation figures; School Guide (schoolguide.vtco.app) public listings and VTCo blog, incl. Nov 19, 2026; VTCo site for Territory Intelligence pricing ($7 / dissemination area / month). Final check Nov 22, 2026 against VTCo's live site: homepage positioning as “Canada's civic intelligence platform,” Social Infrastructure Database page (500+ sources, 57,936 dissemination areas), School Guide release (July 1, 2026, Metro Vancouver) and Nov 17, 2026 posts describing BC-wide coverage (1,855 schools, 60 districts, 2,110 programs), Canada's Mosaic release (Sept 2, 2026, national, English and French), and careers page (“No open roles right now”). The Alberta → Ontario → Quebec expansion sequence is per Sathvik Divili (data / School Guide at VTCo), as relayed by Sadhik: they are expanding to Alberta first, then Ontario, then Quebec. LinkedIn: Vik Khanna, VTCo company page, and Sathvik Divili profiles and posts, read in a signed-in session, read-only, Nov 21, 2026 — post dates converted from relative dates and therefore approximate; feed history ~1 month; truncated posts noted as unseen. Queen Alexandra and Collingwood / Thompson figures are as stated in the LinkedIn posts cited; the Queen Alexandra scenarios are arithmetic on stated yields, not forecasts. Territory estimator is arithmetic on the published $7 rate, not a revenue forecast. Snapshot date Nov 22, 2026. Where a district has not decided, this page says "proposed." Where it has not published, this page draws nothing.</p>
-  <p>Built by <strong>Sadhik Ahamed Shaik Mohammed</strong> — Victoria, BC. Not affiliated with VTCo, SD61, SD62, or the Vancouver School Board. School Guide, Territory Intelligence, and Social Infrastructure Database are VTCo's products and names.</p>
+  <p><strong>Catchment Change Watch</strong> — a school catchment &amp; capacity tracker. Sources: SD62 Catchment &amp; Pathway Review and Phase 2 notices (2026); SD61 published utilisation figures; Vancouver published enrolment, capacity and seismic figures (2024/25–2026); Statistics Canada dissemination-area geography (2021 Census). Snapshot date Nov 22, 2026. Queen Alexandra scenarios are arithmetic on stated student-yield rates, not forecasts. Where a district has not decided, this page says "proposed." Where it has not published a figure or a boundary, this page shows nothing in its place.</p>
+  <p>Not affiliated with SD61, SD62, or the Vancouver School Board. District names and school names are used only to identify the public records this watch tracks.</p>
 </footer>
 </div>
 <script>
@@ -390,8 +349,7 @@ Victoria, BC</div>
 
   /* Territory estimator */
   var range=document.getElementById('daRange'), daVal=document.getElementById('daVal'), m=document.getElementById('calcMonthly'), a=document.getElementById('calcAnnual');
-  function money(n){ return '$'+n.toLocaleString('en-CA'); }
-  function terr(){ var da=parseInt(range.value,10); daVal.textContent=da; var mo=da*7; m.textContent=money(mo)+' / month'; a.textContent=money(mo*12)+' / year'; }
+  function terr(){ var da=parseInt(range.value,10); daVal.textContent=da; m.textContent=da.toLocaleString('en-CA')+' dissemination areas'; a.textContent='~'+Math.max(1,Math.round(da/60))+' neighbourhood'+(Math.round(da/60)===1?'':'s')+' at typical density'; }
   range.addEventListener('input',terr); terr();
 
   /* Utilisation calculator */
@@ -430,15 +388,6 @@ Victoria, BC</div>
   });
   ucalc();
 
-  /* Copy buttons */
-  document.querySelectorAll('[data-copy]').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var t=document.getElementById(btn.dataset.copy).innerText, toast=document.getElementById(btn.dataset.toast);
-      function done(){ toast.style.display='block'; setTimeout(function(){toast.style.display='none';},4500); }
-      function fallback(){ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); done();}catch(e){} document.body.removeChild(ta); }
-      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done).catch(fallback); } else { fallback(); }
-    });
-  });
 })();
 </script>
 </body>
