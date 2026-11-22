@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>Catchment Change Watch — Victoria / Westshore (SD61 + SD62)</title>
+<title>Catchment Change Watch — Victoria / Westshore pilot, built to scale across Canada</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -100,14 +100,17 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
   </div>
   <h1>School catchments are changing. <em>Here is what is actually known.</em></h1>
   <p class="lede">A working watch for <strong>Greater Victoria — SD61 (Victoria) and SD62 (Sooke / Westshore)</strong>: which schools are over capacity, which catchments are under review, what has been decided, and what is still only proposed. <strong>A source and an as-of date on every figure. Proposed is never shown as decided. Where a district has not published a boundary, no map is drawn.</strong></p>
+  <p class="lede" style="margin-top:14px">Victoria is the <strong>pilot, not the limit</strong>. This page goes deep on one region on purpose — to prove the method on a live review — and the same watch is built to be stood up province by province. VTCo is Vancouver-based and already national in its foundations; this demo follows that direction rather than staying confined to one city. See <a href="#scale">how it scales</a>.</p>
   <div class="btn-row">
     <a class="btn" href="#watchlist">See the watchlist ↓</a>
     <a class="btn ghost" href="#calculator">Use the utilisation calculator</a>
     <a class="btn ghost" href="#qa-brief">Queen Alexandra brief</a>
+    <a class="btn ghost" href="#scale">How this scales across Canada</a>
   </div>
   <div class="meta-row">
-    <span class="chip">Snapshot: Nov 22, 2026</span>
-    <span class="chip">Districts: SD61 · SD62 · plus one Vancouver spotlight (Queen Alexandra)</span>
+    <span class="chip">Snapshot: Nov 22, 2026 · Final check same day</span>
+    <span class="chip">Pilot: SD61 · SD62 · plus one Vancouver spotlight (Queen Alexandra)</span>
+    <span class="chip">Method: province-agnostic — built to scale across Canada</span>
     <span class="chip">Built by Sadhik Ahamed, Victoria, BC</span>
   </div>
 </header>
@@ -129,6 +132,34 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
     <li><span class="when">Fall 2030</span><span><strong>New Langford secondary opens</strong> (2,000 students), relieving Belmont and Royal Bay.</span></li>
   </ol>
   <span class="src" style="margin-top:10px">Source: SD62 Catchment &amp; Pathway Review schedule, 2026</span>
+</section>
+
+<!-- SCALE BEYOND VICTORIA -->
+<section id="scale" aria-labelledby="scale-h">
+  <h2 id="scale-h">Why Victoria is the pilot, not the limit</h2>
+  <p class="muted" style="max-width:72ch">A demo confined to one city would miss the point. VTCo describes itself on its own site as <strong>“Canada's civic intelligence platform,”</strong> based in Vancouver, and its Social Infrastructure Database is already built on Canada's standard geography — <strong>57,936 dissemination areas (2021 Census)</strong> — not on a single region. The honest way to show fit is therefore: <strong>one region, done properly, with the repeatable pattern made explicit.</strong></p>
+
+  <div class="principle"><strong>What travels unchanged:</strong> source + as-of date on every figure · proposed never shown as decided · operating vs. nominal capacity always labelled · no boundary drawn until a district publishes it · a freshness audit for every new source. That discipline is the product — the region is just the first place it is applied.</div>
+
+  <div class="cards">
+    <article class="scard"><span class="tag pipe">Pilot · Live in this page</span><h3>British Columbia — Victoria / Westshore</h3><p style="margin:6px 0 0">SD61 + SD62, plus the Vancouver Queen Alexandra spotlight. A live catchment review (SD62, decision Spring 2027) makes BC the right place to prove the watch end-to-end: timeline, calculator, brief, and data notes.</p><span class="src" style="margin-top:10px">This page · Snapshot Nov 22, 2026</span></article>
+    <article class="scard"><span class="tag review">Next pattern to apply</span><h3>Alberta</h3><p style="margin:6px 0 0">Same watch, new source set: Alberta school authorities (public, separate, and francophone), a different ministry, and different capacity and enrolment definitions. Nothing from BC is copied over — each figure is re-sourced from Alberta's own publications and stamped with its own as-of date before it appears.</p><span class="src" style="margin-top:10px">Method note — no Alberta figures are claimed on this page until they are sourced that way</span></article>
+    <article class="scard"><span class="tag review">Then</span><h3>Ontario</h3><p style="margin:6px 0 0">Ontario adds scale and board-type complexity — English and French, public and Catholic boards side by side in the same neighbourhood. The watch handles that the same way it handles SD61 vs. SD62: keep each board's status labels in that board's own words, and never merge two systems into one average.</p><span class="src" style="margin-top:10px">Method note — board structure differs; the provenance rules do not</span></article>
+    <article class="scard"><span class="tag review">Then</span><h3>Quebec — French-first</h3><p style="margin:6px 0 0">Quebec is not a translation pass at the end. Centres de services scolaires publish in French first, so the watch has to be sourced, labelled, and dated in French from the start. VTCo has already shipped that pattern nationally: Canada's Mosaic (Sept 2, 2026) is published in English and French.</p><span class="src" style="margin-top:10px">Source: VTCo, Canada's Mosaic newsroom release, Sept 2, 2026</span></article>
+  </div>
+
+  <div class="chart-box" style="margin-top:18px">
+    <h3>Final check — what VTCo's own site and posts showed on Nov 22, 2026</h3>
+    <p class="muted" style="margin:8px 0 0">Checked before sending, so this page matches the company as it is now — not as it was when the research started.</p>
+    <ul style="margin:12px 0 0;padding-left:18px">
+      <li><strong>Positioning:</strong> “Canada's civic intelligence platform” — Vancouver, BC. The national framing is theirs, not added here.</li>
+      <li><strong>Substrate is already national:</strong> the Social Infrastructure Database integrates 500+ public sources across 57,936 dissemination areas, aggregated up through census tract, subdivision, and metropolitan area.</li>
+      <li><strong>School Guide has already widened:</strong> launched for Metro Vancouver on July 1, 2026; VTCo's Nov 17, 2026 posts describe it as covering every school in BC — 1,855 schools (1,569 public, 286 independent), 60 districts, 2,110 programs.</li>
+      <li><strong>National + bilingual precedent:</strong> Canada's Mosaic (Sept 2, 2026) maps 55,499 dissemination areas across Canada, in English and French.</li>
+      <li><strong>Hiring, stated plainly:</strong> VTCo's careers page read “No open roles right now” at this check — which is why the messages below ask for a take, not a job.</li>
+    </ul>
+    <span class="src" style="margin-top:12px">Sources: <a href="https://thevisualthinkingcompany.com/" target="_blank" rel="noopener">thevisualthinkingcompany.com</a> · <a href="https://thevisualthinkingcompany.com/newsroom/vtco-introduces-school-guide-a-free-tool-for-metro-vancouver-s-school-and-neighbourhood-questions/" target="_blank" rel="noopener">School Guide release, July 1, 2026</a> · <a href="https://thevisualthinkingcompany.com:443/newsroom/vtco-publishes-canada-s-mosaic-a-map-of-the-origins-canadians-reported-in-the-2021-census/" target="_blank" rel="noopener">Canada's Mosaic release, Sept 2, 2026</a> · <a href="https://thevisualthinkingcompany.com:443/careers/" target="_blank" rel="noopener">Careers page</a> · Checked Nov 22, 2026. The Alberta → Ontario → Quebec sequence is the expansion order described to the builder of this page; it is not quoted as a VTCo-published roadmap, because no public page stating that order was found in this check.</span>
+  </div>
 </section>
 
 <!-- WATCHLIST -->
@@ -301,35 +332,37 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
 <!-- ABOUT -->
 <section aria-labelledby="about-h">
   <h2 id="about-h">About this page</h2>
-  <p style="max-width:68ch">Built by <strong>Sadhik Ahamed</strong> in Victoria, BC — UVic Computer Science (degree awarded Oct 2026, coursework finished April 2026), about two years of co-ops in data, SQL reporting, and dashboards (BC Pension Corporation, UVic, Providence Global Center, Amazon), now a Cloud &amp; Security Engineer at Absolute Software.</p>
+  <p style="max-width:68ch">Built by <strong>Sadhik Ahamed</strong> in Victoria, BC — UVic Computer Science (degree awarded Oct 2026, coursework finished April 2026), about two years of co-ops in data, SQL reporting, and dashboards (BC Pension Corporation, UVic, Providence Global Center, Amazon), now a Cloud &amp; Security Engineer at Absolute Software. Based in BC, working in a national data pattern — the pilot is local, the method is not.</p>
   <p class="muted" style="max-width:68ch">Method, in one paragraph: every figure was taken from a published source and dated; conflicting or stale figures are flagged, not smoothed over; statuses follow the district's own labels (proposed vs. decided); and anything a source has not published — a boundary map, a cost, a forecast — is left blank and named as missing, rather than filled in.</p>
 </section>
 
 <!-- MESSAGES -->
 <section id="messages" aria-labelledby="msg-h">
   <h2 id="msg-h">Messages to send with the link</h2>
-  <p class="muted">Short on purpose — a check-in and a link, not a pitch. This page is a single self-contained HTML file: put it in a GitHub repo as <span class="mono">index.html</span> and enable GitHub Pages (or host it on your own domain, as with Ask Victoria 2050), then paste that public link into both messages where marked. Send Sathvik's first.</p>
+  <p class="muted">Short on purpose — a check-in and a link, not a pitch. Live at <a href="https://sadhik.dev/Catchment-Change-Watch/">sadhik.dev/Catchment-Change-Watch</a> — that link is already filled into both messages below. Send Sathvik's first.</p>
 
   <h3 style="margin-top:24px">1 — To Sathvik (text / LinkedIn, casual)</h3>
   <div class="msgbox casual" id="sathvikText">Hey man, long time — how've you been? Saw you're at Jobber now as well as VTCo, congrats.
 
-I built a small thing and wanted your honest take before I show anyone else: a Catchment Change Watch for Victoria / Westshore — the live SD62 review, SD61's over-capacity schools, a working utilisation calculator, and a short brief on Queen Alexandra. All sourced and dated, nothing invented.
+I built a small thing and wanted your honest take before I show anyone else: a Catchment Change Watch — Victoria / Westshore as the pilot (live SD62 review, SD61's over-capacity schools, a working utilisation calculator, a short brief on Queen Alexandra), with a section on how the same method scales province by province. All sourced and dated, nothing invented.
 
-[PASTE LINK HERE]
+https://sadhik.dev/Catchment-Change-Watch/
 
 Two-minute look whenever you get a chance — if something's off, I'd rather hear it from you first. Catch me up on Jobber too.</div>
   <div class="btn-row"><button class="btn" type="button" data-copy="sathvikText" data-toast="toast1">Copy Sathvik's message</button></div>
-  <div class="toast" id="toast1" role="status">Copied — paste your link in, then send.</div>
+  <div class="toast" id="toast1" role="status">Copied — link is already in the message, ready to send.</div>
 
   <h3 style="margin-top:30px">2 — To Vik (email)</h3>
-  <p class="muted" style="margin:6px 0 12px">Subject: Quick one — built a catchment watch for Victoria / Westshore</p>
+  <p class="muted" style="margin:6px 0 12px">Subject: Quick one — built a catchment watch (Victoria pilot, built to scale)</p>
   <div class="msgbox" id="emailText">Hi Vik,
 
 Long time — hope you're well.
 
-I built a small tool I thought you might find useful: a Catchment Change Watch for Victoria / Westshore, around the live SD62 review — Phase 2 survey Nov 23–Dec 4, board decision Spring 2027, new Langford secondary Fall 2030 — with a source and an as-of date on every figure, and proposed vs. decided kept separate throughout.
+I built a small tool I thought you might find useful: a Catchment Change Watch, with Victoria / Westshore as the pilot — the live SD62 review (Phase 2 survey Nov 23–Dec 4, board decision Spring 2027, new Langford secondary Fall 2030) — with a source and an as-of date on every figure, and proposed vs. decided kept separate throughout.
 
-[PASTE LINK HERE]
+https://sadhik.dev/Catchment-Change-Watch/
+
+I kept it to one region on purpose, to do it properly — but I know VTCo is Vancouver-based and thinking nationally, so there's a short section on how the same watch stands up province by province (Alberta, Ontario, then Quebec, French-first) rather than staying a Victoria-only piece.
 
 It also includes a working version of your operating vs. nominal capacity point (Cunningham / Weir / MacCorkindale), a short brief finishing the Queen Alexandra question, and a few freshness notes on the school data.
 
@@ -339,11 +372,11 @@ Thanks,
 Sadhik
 Victoria, BC</div>
   <div class="btn-row"><button class="btn" type="button" data-copy="emailText" data-toast="toast2">Copy Vik's email</button><a class="btn ghost" href="https://www.linkedin.com/in/sadhik-ahamed-sm2607" target="_blank" rel="noopener">Sadhik on LinkedIn ↗</a></div>
-  <div class="toast" id="toast2" role="status">Copied — paste your link in, then send.</div>
+  <div class="toast" id="toast2" role="status">Copied — link is already in the message, ready to send.</div>
 </section>
 
 <footer>
-  <p><strong>Sources &amp; method.</strong> SD62 Catchment &amp; Pathway Review and Phase 2 notices (2026); SD61 published utilisation figures; School Guide (schoolguide.vtco.app) public listings and VTCo blog, incl. Nov 19, 2026; VTCo site for Territory Intelligence pricing ($7 / dissemination area / month). LinkedIn: Vik Khanna, VTCo company page, and Sathvik Divili profiles and posts, read in a signed-in session, read-only, Nov 21, 2026 — post dates converted from relative dates and therefore approximate; feed history ~1 month; truncated posts noted as unseen. Queen Alexandra and Collingwood / Thompson figures are as stated in the LinkedIn posts cited; the Queen Alexandra scenarios are arithmetic on stated yields, not forecasts. Territory estimator is arithmetic on the published $7 rate, not a revenue forecast. Snapshot date Nov 22, 2026. Where a district has not decided, this page says "proposed." Where it has not published, this page draws nothing.</p>
+  <p><strong>Sources &amp; method.</strong> SD62 Catchment &amp; Pathway Review and Phase 2 notices (2026); SD61 published utilisation figures; School Guide (schoolguide.vtco.app) public listings and VTCo blog, incl. Nov 19, 2026; VTCo site for Territory Intelligence pricing ($7 / dissemination area / month). Final check Nov 22, 2026 against VTCo's live site: homepage positioning as “Canada's civic intelligence platform,” Social Infrastructure Database page (500+ sources, 57,936 dissemination areas), School Guide release (July 1, 2026, Metro Vancouver) and Nov 17, 2026 posts describing BC-wide coverage (1,855 schools, 60 districts, 2,110 programs), Canada's Mosaic release (Sept 2, 2026, national, English and French), and careers page (“No open roles right now”). No public page stating an Alberta → Ontario → Quebec order was found in that check, so that sequence is described on this page as the order given to its builder, not as a VTCo-published roadmap. LinkedIn: Vik Khanna, VTCo company page, and Sathvik Divili profiles and posts, read in a signed-in session, read-only, Nov 21, 2026 — post dates converted from relative dates and therefore approximate; feed history ~1 month; truncated posts noted as unseen. Queen Alexandra and Collingwood / Thompson figures are as stated in the LinkedIn posts cited; the Queen Alexandra scenarios are arithmetic on stated yields, not forecasts. Territory estimator is arithmetic on the published $7 rate, not a revenue forecast. Snapshot date Nov 22, 2026. Where a district has not decided, this page says "proposed." Where it has not published, this page draws nothing.</p>
   <p>Built by <strong>Sadhik Ahamed Shaik Mohammed</strong> — Victoria, BC. Not affiliated with VTCo, SD61, SD62, or the Vancouver School Board. School Guide, Territory Intelligence, and Social Infrastructure Database are VTCo's products and names.</p>
 </footer>
 </div>
