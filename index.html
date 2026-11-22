@@ -64,6 +64,14 @@ section{padding:52px 0;border-top:1px solid var(--line)}
 .calc-out{background:var(--teal2);border-radius:14px;padding:20px}
 .calc-out .big{font-family:"Fraunces",serif;font-size:2rem;font-weight:900;line-height:1.1}
 .calc-out table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.95rem}.calc-out td{padding:8px 4px;border-bottom:1px solid var(--line)}.calc-out td:last-child{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.live-line{background:var(--teal2);border-radius:10px;padding:12px 14px;font-weight:600;font-size:.98rem;margin:14px 0 0}
+.mrow{display:grid;grid-template-columns:82px 1fr 62px;gap:10px;align-items:center;margin-top:10px;font-size:.88rem;font-weight:600}
+.mrow .mv{text-align:right;font-variant-numeric:tabular-nums}
+.mtrack{height:14px;background:var(--bg);border-radius:99px;overflow:hidden}
+.mfill{height:100%;border-radius:99px;background:var(--teal-bright);transition:width .18s ease}
+.mfill.hot{background:var(--red)}
+@media (prefers-reduced-motion: reduce){.mfill{transition:none}}
+@media(max-width:560px){.denom,.scen{font-size:.8rem}.denom th,.denom td,.scen th,.scen td{padding:7px 5px}.denom td.num,.scen td.num{white-space:normal}}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.fbtn{padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:600}.fbtn[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
 @media (prefers-color-scheme: dark){.fbtn[aria-pressed="true"]{color:#0e1210}}
 .cards{display:grid;gap:14px}@media(min-width:760px){.cards{grid-template-columns:1fr 1fr}}
@@ -221,10 +229,13 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
           <button class="pbtn" type="button" data-preset="qa" aria-pressed="false">Queen Alexandra — 142 / 262</button>
         </div>
         <p class="muted" style="font-size:.88rem;margin:12px 0 0">Presets for the three Vancouver schools use example enrolment / capacity values that reproduce the published percentages exactly, because only the percentages were published, not the underlying seat counts — so spare-seat differences from these examples are illustrative, not the schools' actual seat counts. Queen Alexandra uses its published counts (142 enrolled, 262 capacity) with the same figure in both capacity fields, because only one capacity was published. Change any number and the result updates.</p>
+        <p class="live-line" id="liveLine" aria-live="polite">450 students · 90.0% of operating capacity · 81.5% of nominal capacity</p>
       </div>
       <div class="calc-out" aria-live="polite">
         <p style="margin:0;font-weight:600" id="calcTitle">Weir Elementary — worked example</p>
         <div class="big" style="margin-top:8px"><span id="outOp">90.0%</span> <span style="font-size:1rem;font-weight:600">operating</span><br><span id="outNom">81.5%</span> <span style="font-size:1rem;font-weight:600">nominal</span></div>
+        <div class="mrow"><span>Operating</span><div class="mtrack"><div class="mfill" id="barOp" style="width:90%"></div></div><span class="mv" id="barOpVal">90.0%</span></div>
+        <div class="mrow"><span>Nominal</span><div class="mtrack"><div class="mfill" id="barNom" style="width:81.5%"></div></div><span class="mv" id="barNomVal">81.5%</span></div>
         <table>
           <tr><td>Gap between the two readings</td><td id="outGap">8.5 pts</td></tr>
           <tr><td>Spare seats — operating basis</td><td id="outSpareOp">50</td></tr>
@@ -343,20 +354,28 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
 </div>
 <script>
 (function(){
-  var btns=document.querySelectorAll('.fbtn'), cards=document.querySelectorAll('#cards .scard'), count=document.getElementById('count');
-  function apply(f){ var n=0; cards.forEach(function(c){ var show=f==='all'||c.dataset.d===f||(c.dataset.s||'').split(' ').indexOf(f)>-1; c.style.display=show?'':'none'; if(show)n++; }); count.textContent=n+(n===1?' school / area':' schools / areas')+' shown'; btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.filter===f?'true':'false');}); }
-  btns.forEach(function(b){ b.addEventListener('click',function(){ apply(b.dataset.filter); }); }); apply('all');
+  function on(el, ev, fn){ if(el) el.addEventListener(ev, fn, false); }
+  function onAll(el, evs, fn){ for(var i=0;i<evs.length;i++) on(el, evs[i], fn); }
+  var EDIT=['input','change','keyup'];
 
-  /* Territory estimator */
+  /* Watchlist filters */
+  var btns=document.querySelectorAll('.fbtn'), cards=document.querySelectorAll('#cards .scard'), count=document.getElementById('count');
+  function apply(f){ var n=0; for(var i=0;i<cards.length;i++){ var c=cards[i]; var show=f==='all'||c.getAttribute('data-d')===f||(c.getAttribute('data-s')||'').split(' ').indexOf(f)>-1; c.style.display=show?'':'none'; if(show)n++; } if(count) count.textContent=n+(n===1?' school / area':' schools / areas')+' shown'; for(var j=0;j<btns.length;j++) btns[j].setAttribute('aria-pressed',btns[j].getAttribute('data-filter')===f?'true':'false'); }
+  for(var b=0;b<btns.length;b++)(function(btn){ on(btn,'click',function(){ apply(btn.getAttribute('data-filter')); }); })(btns[b]);
+  apply('all');
+
+  /* Territory slider */
   var range=document.getElementById('daRange'), daVal=document.getElementById('daVal'), m=document.getElementById('calcMonthly'), a=document.getElementById('calcAnnual');
-  function terr(){ var da=parseInt(range.value,10); daVal.textContent=da; m.textContent=da.toLocaleString('en-CA')+' dissemination areas'; a.textContent='~'+Math.max(1,Math.round(da/60))+' neighbourhood'+(Math.round(da/60)===1?'':'s')+' at typical density'; }
-  range.addEventListener('input',terr); terr();
+  function terr(){ if(!range) return; var da=parseInt(range.value,10); if(isNaN(da)) return; var nb=Math.max(1,Math.round(da/60)); if(daVal) daVal.textContent=da; if(m) m.textContent=da.toLocaleString('en-CA')+' dissemination areas'; if(a) a.textContent='~'+nb+' neighbourhood'+(nb===1?'':'s')+' at typical density'; }
+  onAll(range, EDIT, terr); terr();
 
   /* Utilisation calculator */
   var inE=document.getElementById('inEnrol'), inO=document.getElementById('inOp'), inN=document.getElementById('inNom');
   var outOp=document.getElementById('outOp'), outNom=document.getElementById('outNom'), outGap=document.getElementById('outGap'),
       outSO=document.getElementById('outSpareOp'), outSN=document.getElementById('outSpareNom'), outSD=document.getElementById('outSpareDiff'),
-      outV=document.getElementById('outVerdict'), calcTitle=document.getElementById('calcTitle');
+      outV=document.getElementById('outVerdict'), calcTitle=document.getElementById('calcTitle'), liveLine=document.getElementById('liveLine'),
+      barOp=document.getElementById('barOp'), barNom=document.getElementById('barNom'),
+      barOpVal=document.getElementById('barOpVal'), barNomVal=document.getElementById('barNomVal');
   var presets={
     weir:{t:'Weir Elementary — worked example', e:450, o:500, n:552},
     cunningham:{t:'Cunningham Elementary — worked example', e:716, o:1000, n:1105},
@@ -364,30 +383,33 @@ input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
     qa:{t:'Queen Alexandra Elementary — published counts', e:142, o:262, n:262}
   };
   function pct(x){ return (Math.round(x*10)/10).toFixed(1)+'%'; }
+  function spare(x){ return x>=0 ? x.toLocaleString('en-CA')+' spare' : Math.abs(x).toLocaleString('en-CA')+' over capacity'; }
+  function setBar(bar, valEl, p){ if(bar){ bar.style.width=Math.min(p,100)+'%'; if(p>100) bar.classList.add('hot'); else bar.classList.remove('hot'); } if(valEl) valEl.textContent=pct(p); }
   function ucalc(){
     var e=parseFloat(inE.value), o=parseFloat(inO.value), n=parseFloat(inN.value);
-    if(!(e>=0)||!(o>0)||!(n>0)){ outOp.textContent='—'; outNom.textContent='—'; outGap.textContent='—'; outSO.textContent='—'; outSN.textContent='—'; outSD.textContent='—'; outV.textContent='Enter an enrolment and two capacities above zero.'; return; }
+    if(!(e>=0)||!(o>0)||!(n>0)){ outOp.textContent='—'; outNom.textContent='—'; outGap.textContent='—'; outSO.textContent='—'; outSN.textContent='—'; outSD.textContent='—'; outV.textContent='Enter an enrolment and two capacities above zero.'; if(liveLine) liveLine.textContent='Enter an enrolment and both capacities — the result updates as you type.'; setBar(barOp,barOpVal,0); setBar(barNom,barNomVal,0); return; }
     var po=e/o*100, pn=e/n*100;
     outOp.textContent=pct(po); outNom.textContent=pct(pn);
     outGap.textContent=(Math.round(Math.abs(po-pn)*10)/10).toFixed(1)+' pts';
     var so=Math.round(o-e), sn=Math.round(n-e);
     outSO.textContent=so.toLocaleString('en-CA'); outSN.textContent=sn.toLocaleString('en-CA'); outSD.textContent=Math.abs(sn-so).toLocaleString('en-CA')+' seats';
+    setBar(barOp,barOpVal,po); setBar(barNom,barNomVal,pn);
+    if(liveLine) liveLine.textContent=Math.round(e).toLocaleString('en-CA')+' students · '+pct(po)+' of operating capacity ('+spare(so)+') · '+pct(pn)+' of nominal capacity ('+spare(sn)+')';
     var hi=Math.max(po,pn);
     outV.textContent = hi>100 ? 'Over capacity on both readings — the denominator changes the size of the problem, not whether there is one.'
       : hi>=85 ? 'Nearly full on the tighter reading; visibly more room on the looser one. Which figure gets published changes the public story.'
       : 'Comfortable on both readings — the gap between them is still worth labelling, because it grows as enrolment rises.';
   }
-  [inE,inO,inN].forEach(function(el){ el.addEventListener('input',function(){ calcTitle.textContent='Your numbers'; document.querySelectorAll('.pbtn').forEach(function(b){b.setAttribute('aria-pressed','false');}); ucalc(); }); });
-  document.querySelectorAll('.pbtn').forEach(function(b){
-    b.addEventListener('click',function(){
-      var p=presets[b.dataset.preset]; if(!p) return;
-      inE.value=p.e; inO.value=p.o; inN.value=p.n; calcTitle.textContent=p.t;
-      document.querySelectorAll('.pbtn').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+  function custom(){ if(calcTitle) calcTitle.textContent='Your numbers'; var pb=document.querySelectorAll('.pbtn'); for(var i=0;i<pb.length;i++) pb[i].setAttribute('aria-pressed','false'); ucalc(); }
+  onAll(inE, EDIT, custom); onAll(inO, EDIT, custom); onAll(inN, EDIT, custom);
+  var pbtns=document.querySelectorAll('.pbtn');
+  for(var k=0;k<pbtns.length;k++)(function(btn){ on(btn,'click',function(){
+      var p=presets[btn.getAttribute('data-preset')]; if(!p) return;
+      inE.value=p.e; inO.value=p.o; inN.value=p.n; if(calcTitle) calcTitle.textContent=p.t;
+      for(var i=0;i<pbtns.length;i++) pbtns[i].setAttribute('aria-pressed',pbtns[i]===btn?'true':'false');
       ucalc();
-    });
-  });
+  }); })(pbtns[k]);
   ucalc();
-
 })();
 </script>
 </body>
