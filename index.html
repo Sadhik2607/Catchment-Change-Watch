@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Catchment Change Watch — Victoria / Westshore (SD61 + SD62)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfaf7; --bg2:#f1efe9; --card:#ffffff; --ink:#101613; --muted:#5c6862; --line:#e2ded2;
+  --teal:#0b4f43; --teal-bright:#0e6b5a; --teal2:#e6f0ec; --gold:#9a6d12; --gold-bg:#fdf6e3; --red:#b42318; --red-bg:#fdf0ee;
+  --radius:16px; --shadow:0 12px 32px rgba(16,22,19,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0e1210; --bg2:#171d1a; --card:#18201c; --ink:#edf2ee; --muted:#a3b3ab; --line:#2b3530; --teal:#5fd1b8; --teal-bright:#5fd1b8; --teal2:#162e29; --gold:#e9b954; --gold-bg:#2c2310; --red:#ff9a8f; --red-bg:#331c1a; --shadow:none; }
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:"IBM Plex Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+a{color:var(--teal-bright)} button{font:inherit;min-height:44px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.1;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,3.5vw,2.3rem);margin-bottom:10px}
+h3{font-size:1.15rem}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:.82rem}.muted{color:var(--muted)}
+section{padding:52px 0;border-top:1px solid var(--line)}
+.src{font-size:.74rem;color:var(--muted);font-family:"IBM Plex Mono",monospace;line-height:1.5;display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 22px;border-radius:12px;border:1px solid var(--teal);font-weight:700;text-decoration:none;cursor:pointer;background:var(--teal);color:#fff;font-size:.97rem}
+.btn.ghost{background:transparent;color:var(--teal)}
+@media (prefers-color-scheme: dark){.btn{background:var(--teal);color:#0e1210}.btn.ghost{background:transparent;color:var(--teal)}}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-size:.87rem;font-weight:500}
+.hero{padding:34px 0 44px}
+.eyebrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.live{display:inline-flex;align-items:center;gap:8px;background:var(--red-bg);color:var(--red);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:8px 13px;border-radius:999px}
+.tagline{display:inline-flex;padding:8px 13px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.3}} @media (prefers-reduced-motion: reduce){.dot{animation:none} html{scroll-behavior:auto}}
+.hero h1{font-size:clamp(2.3rem,6vw,3.8rem);font-weight:900;margin:22px 0 16px;max-width:18ch}
+.hero h1 em{font-style:normal;color:var(--teal-bright);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+.lede{font-size:1.15rem;color:var(--muted);max-width:66ch;margin:0}.lede strong{color:var(--ink)}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}@media(min-width:760px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.kpi .num{font-family:"Fraunces",serif;font-size:2.1rem;font-weight:900;line-height:1}.kpi .num.hot{color:var(--red)}.kpi .num.cool{color:var(--teal-bright)}
+.kpi p{margin:8px 0 6px;font-size:.92rem}
+.chart-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.bar-row{display:grid;grid-template-columns:132px 1fr 54px;gap:12px;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.92rem}.bar-row:last-of-type{border-bottom:none}
+.track{height:16px;background:var(--bg2);border-radius:99px;position:relative}.fill{height:100%;border-radius:99px;background:var(--teal-bright)}.fill.hot{background:var(--red)}.fill.warn{background:#d99a16}
+.capline{position:absolute;top:-4px;bottom:-4px;left:83.3%;width:2px;background:var(--ink);opacity:.55}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--muted);margin-top:12px}
+.principle{border-left:4px solid var(--teal-bright);padding:6px 0 6px 18px;margin:22px 0;font-size:1.05rem}
+.denom{width:100%;border-collapse:collapse;margin-top:14px;font-size:.93rem}.denom th,.denom td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.denom th{font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}.denom td.num,.denom th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+/* calculator */
+.calc-grid{display:grid;gap:20px;margin-top:18px}@media(min-width:760px){.calc-grid{grid-template-columns:1fr 1fr}}
+.field label{font-weight:700;display:block;margin-bottom:6px;font-size:.95rem}
+.field input{width:100%;min-height:50px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:1.05rem}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtn{padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:600;font-size:.9rem}
+.pbtn[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
+@media (prefers-color-scheme: dark){.pbtn[aria-pressed="true"]{color:#0e1210}}
+.calc-out{background:var(--teal2);border-radius:14px;padding:20px}
+.calc-out .big{font-family:"Fraunces",serif;font-size:2rem;font-weight:900;line-height:1.1}
+.calc-out table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.95rem}.calc-out td{padding:8px 4px;border-bottom:1px solid var(--line)}.calc-out td:last-child{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.fbtn{padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:600}.fbtn[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
+@media (prefers-color-scheme: dark){.fbtn[aria-pressed="true"]{color:#0e1210}}
+.cards{display:grid;gap:14px}@media(min-width:760px){.cards{grid-template-columns:1fr 1fr}}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}.scard h3{margin:6px 0 4px}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:99px;margin:2px 4px 2px 0}.tag.review{background:var(--gold-bg);color:var(--gold)}.tag.over{background:var(--red-bg);color:var(--red)}.tag.pipe{background:var(--teal2);color:var(--teal-bright)}.tag.watch{background:var(--bg2);color:var(--muted)}
+.scard ul{margin:10px 0 0;padding-left:18px;font-size:.93rem}.means{background:var(--bg2);border-radius:10px;padding:11px 13px;font-size:.9rem;margin-top:12px}
+.tl{list-style:none;margin:18px 0 0;padding:0}.tl li{display:grid;grid-template-columns:118px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}.tl .when{font-family:"IBM Plex Mono",monospace;font-size:.84rem;font-weight:600;color:var(--teal-bright)}.tl li.now .when{color:var(--red)}.badge-now{font-size:.7rem;background:var(--red);color:#fff;border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:middle;white-space:nowrap}
+.audit{display:grid;gap:12px;margin-top:16px}
+.arow{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+@media(min-width:760px){.arow{display:grid;grid-template-columns:185px 1fr 1fr;gap:18px}}
+.sev{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em}.sev.high{color:var(--red)}.sev.med{color:var(--gold)}.sev.low{color:var(--teal-bright)}
+.tbrief{background:var(--card);border:2px solid var(--ink);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+.tbrief-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:16px}
+.tgrid{display:grid;gap:14px}@media(min-width:760px){.tgrid{grid-template-columns:1fr 1fr 1fr}}
+.tcell{background:var(--bg2);border-radius:12px;padding:14px}.tcell strong{font-size:1.3rem;font-family:"Fraunces",serif}
+.known{display:grid;gap:14px;margin-top:16px}@media(min-width:760px){.known{grid-template-columns:1fr 1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.panel ul{margin:10px 0 0;padding-left:18px;font-size:.95rem}
+.scen{width:100%;border-collapse:collapse;margin-top:12px;font-size:.93rem}.scen th,.scen td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left}.scen td.num,.scen th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.scen th{font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.msgbox{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;white-space:pre-wrap;font-size:.95rem;box-shadow:var(--shadow)}.msgbox.casual{background:var(--gold-bg);border-style:dashed}
+.toast{display:none;background:var(--teal);color:#fff;padding:12px 16px;border-radius:10px;margin-top:12px;font-weight:600}
+@media (prefers-color-scheme: dark){.toast{color:#0e1210}}
+footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--teal-bright);min-height:44px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">
+    <span class="tagline">Catchment Change Watch</span>
+    <span class="live"><span class="dot"></span> SD62 Phase 2 survey opens Nov 23, 2026</span>
+  </div>
+  <h1>School catchments are changing. <em>Here is what is actually known.</em></h1>
+  <p class="lede">A working watch for <strong>Greater Victoria — SD61 (Victoria) and SD62 (Sooke / Westshore)</strong>: which schools are over capacity, which catchments are under review, what has been decided, and what is still only proposed. <strong>A source and an as-of date on every figure. Proposed is never shown as decided. Where a district has not published a boundary, no map is drawn.</strong></p>
+  <div class="btn-row">
+    <a class="btn" href="#watchlist">See the watchlist ↓</a>
+    <a class="btn ghost" href="#calculator">Use the utilisation calculator</a>
+    <a class="btn ghost" href="#qa-brief">Queen Alexandra brief</a>
+  </div>
+  <div class="meta-row">
+    <span class="chip">Snapshot: Nov 22, 2026</span>
+    <span class="chip">Districts: SD61 · SD62 · plus one Vancouver spotlight (Queen Alexandra)</span>
+    <span class="chip">Built by Sadhik Ahamed, Victoria, BC</span>
+  </div>
+</header>
+
+<!-- AT A GLANCE -->
+<section style="border-top:none;padding-top:6px" aria-labelledby="glance-h">
+  <h2 id="glance-h">At a glance</h2>
+  <p class="muted">Two neighbouring districts, opposite problems — one over capacity overall, one uneven school by school.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="num hot">117%</div><p><strong>SD62 Sooke</strong> district utilisation — over capacity overall</p><span class="src">Source: SD62 Catchment &amp; Pathway Review · 2026</span></div>
+    <div class="kpi"><div class="num">2,000</div><p>Students in the <strong>new Langford secondary</strong>, opening Fall 2030 to relieve Belmont &amp; Royal Bay</p><span class="src">Source: SD62 review materials · 2026</span></div>
+    <div class="kpi"><div class="num hot">123%</div><p><strong>Tillicum Elementary (SD61)</strong> — most over-capacity school in a district averaging 91%</p><span class="src">Source: SD61 / School Guide figures · 2026</span></div>
+    <div class="kpi"><div class="num cool">12 days</div><p><strong>SD62 Phase 2 survey window</strong> — Nov 23 to Dec 4, 2026, then open houses in January</p><span class="src">Source: SD62 Phase 2 notice · Nov 2026</span></div>
+  </div>
+  <ol class="tl">
+    <li class="now"><span class="when">Nov 23 – Dec 4, 2026<span class="badge-now">OPENS NOV 23</span></span><span><strong>SD62 Phase 2 survey.</strong> Public consultation on catchment &amp; pathway options. 12 days.</span></li>
+    <li><span class="when">Jan 25 &amp; 28, 2027</span><span><strong>SD62 open houses.</strong> In-person sessions on the proposals.</span></li>
+    <li><span class="when">Spring 2027</span><span><strong>SD62 board decision.</strong> Until this date, everything in the review is <em>proposed</em> — and is labelled that way on this page.</span></li>
+    <li><span class="when">Fall 2030</span><span><strong>New Langford secondary opens</strong> (2,000 students), relieving Belmont and Royal Bay.</span></li>
+  </ol>
+  <span class="src" style="margin-top:10px">Source: SD62 Catchment &amp; Pathway Review schedule, 2026</span>
+</section>
+
+<!-- WATCHLIST -->
+<section id="watchlist" aria-labelledby="watch-h">
+  <h2 id="watch-h">The watchlist</h2>
+  <p class="muted">Filter by district or status. Every card states what is known, what is only proposed, and what it means on the ground.</p>
+  <div class="filters" role="group" aria-label="Filter watchlist">
+    <button class="fbtn" data-filter="all" aria-pressed="true">All schools</button>
+    <button class="fbtn" data-filter="sd62" aria-pressed="false">SD62 · Sooke / Westshore</button>
+    <button class="fbtn" data-filter="sd61" aria-pressed="false">SD61 · Victoria</button>
+    <button class="fbtn" data-filter="review" aria-pressed="false">Under review</button>
+    <button class="fbtn" data-filter="over" aria-pressed="false">Over capacity</button>
+  </div>
+  <p class="mono muted" id="count" aria-live="polite"></p>
+  <div class="cards" id="cards">
+    <article class="scard" data-d="sd62" data-s="review over"><span class="tag review">Under review</span><span class="tag over">Over capacity</span><h3>Belmont Secondary — Langford (SD62)</h3><p class="muted" style="margin:0">1,800+ students · District at 117%</p><ul><li>One of two Westshore secondaries the new Langford school (Fall 2030, 2,000 seats) is being built to relieve.</li><li>Pathways under review in the current SD62 Catchment &amp; Pathway Review.</li></ul><div class="means"><strong>If you live in Langford / Colwood:</strong> your secondary pathway may change when the new school opens — <em>proposed, not decided</em>. Board decision Spring 2027.</div><span class="src" style="margin-top:10px">Sources: SD62 review materials, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd62" data-s="review over"><span class="tag review">Under review</span><span class="tag over">Over capacity</span><h3>Royal Bay Secondary — Colwood (SD62)</h3><p class="muted" style="margin:0">1,800+ students · District at 117%</p><ul><li>Same relief pipeline as Belmont: the 2,000-student Langford secondary, Fall 2030.</li><li>Growth pressure is structural — the Westshore is one of BC's fastest-growing areas.</li></ul><div class="means"><strong>Buying in Colwood / Metchosin?</strong> Today's catchment is not a guarantee through 2030. Check review status before relying on it.</div><span class="src" style="margin-top:10px">Sources: SD62 review materials, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd62" data-s="pipe"><span class="tag pipe">Pipeline · Opens Fall 2030</span><h3>New Langford Secondary (SD62)</h3><p class="muted" style="margin:0">2,000-student capacity · Not yet open</p><ul><li>The single biggest catchment event in Greater Victoria this decade.</li><li>Its opening redraws Belmont and Royal Bay catchments — boundaries not yet published.</li></ul><div class="means"><strong>Status:</strong> <em>approved / in pipeline</em>, not open. Any map showing its catchment today would be invented — so this page does not draw one.</div><span class="src" style="margin-top:10px">Sources: SD62 review materials, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd62" data-s="review"><span class="tag review">Under review</span><h3>5 elementary catchments — SD62</h3><p class="muted" style="margin:0">Phase 2 consultation · Nov 23 – Dec 4, 2026</p><ul><li>Five elementary catchments formally under review alongside secondary pathways.</li><li>Phase 2 survey is the public's current window to be heard.</li></ul><div class="means"><strong>Elementary-age kids in SD62?</strong> The survey window is days, not months — Nov 23 to Dec 4, 2026.</div><span class="src" style="margin-top:10px">Sources: SD62 Phase 2 notice, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd61" data-s="over"><span class="tag over">Over capacity · 123%</span><h3>Tillicum Elementary — Saanich (SD61)</h3><p class="muted" style="margin:0">123% utilisation · District average 91%</p><ul><li>The clearest school-level crunch hidden by a healthy district average in SD61.</li><li>No active boundary review announced — itself a finding worth watching.</li></ul><div class="means"><strong>Watch:</strong> portables, waitlists, any SD61 capacity announcement. Status: <em>watching, no change proposed</em>.</div><span class="src" style="margin-top:10px">Sources: SD61 / School Guide figures, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd61" data-s="over"><span class="tag over">Over capacity · 120%</span><h3>Victoria High School (SD61)</h3><p class="muted" style="margin:0">120% utilisation · District average 91%</p><ul><li>Students above nominal capacity in the district's flagship secondary.</li><li>Pairs with Eagle View Elementary (119%) as SD61's pressure cluster.</li></ul><div class="means"><strong>Watch:</strong> enrolment projections vs. actuals each September — that gap is where catchment changes are born.</div><span class="src" style="margin-top:10px">Sources: SD61 / School Guide figures, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd61" data-s="over"><span class="tag over">Over capacity · 119%</span><h3>Eagle View Elementary — View Royal (SD61)</h3><p class="muted" style="margin:0">119% utilisation · District average 91%</p><ul><li>Westshore growth spilling into SD61's western edge — one housing market, two districts.</li></ul><div class="means"><strong>Watch:</strong> cross-district pressure — SD62's review may shift attention, and families, toward SD61's west side.</div><span class="src" style="margin-top:10px">Sources: SD61 / School Guide figures, 2026 · As of Nov 22, 2026</span></article>
+    <article class="scard" data-d="sd61" data-s="watch"><span class="tag watch">Data quality watch</span><h3>SD61 facility condition — all 46 schools</h3><p class="muted" style="margin:0">45 of 46 rated "Poor or worse" in School Guide</p><ul><li>12 schools carry School Guide's own note: "Recent reporting shows this facility has been upgraded. Condition data may be out of date."</li><li>Only Oak Bay rates "Excellent." A distribution that uniform is a freshness question until reconciled — see the data notes below.</li></ul><div class="means"><strong>Next step:</strong> reconcile each rating against the latest district / ministry reporting and stamp it "as of." Do not republish the rating unchecked.</div><span class="src" style="margin-top:10px">Sources: School Guide SD61 listings, 2026 · As of Nov 22, 2026</span></article>
+  </div>
+</section>
+
+<!-- CHART + CALCULATOR -->
+<section id="calculator" aria-labelledby="calc-h">
+  <h2 id="calc-h">Utilisation — and why the denominator matters</h2>
+  <p class="muted">SD61 looks comfortable at 91% — until you look school by school. Three schools sit above 119%. SD62 has no hiding place at all.</p>
+  <div class="chart-box" role="img" aria-label="Bar chart of school utilisation: Tillicum 123 percent, Victoria High 120 percent, Eagle View 119 percent, SD62 district 117 percent, SD61 district 91 percent. Capacity is 100 percent.">
+    <div class="bar-row"><span>Tillicum Elem. · SD61</span><div class="track"><div class="fill hot" style="width:100%"></div><div class="capline"></div></div><strong>123%</strong></div>
+    <div class="bar-row"><span>Victoria High · SD61</span><div class="track"><div class="fill hot" style="width:97.6%"></div><div class="capline"></div></div><strong>120%</strong></div>
+    <div class="bar-row"><span>Eagle View Elem. · SD61</span><div class="track"><div class="fill hot" style="width:96.7%"></div><div class="capline"></div></div><strong>119%</strong></div>
+    <div class="bar-row"><span>SD62 district avg.</span><div class="track"><div class="fill warn" style="width:95.1%"></div><div class="capline"></div></div><strong>117%</strong></div>
+    <div class="bar-row"><span>SD61 district avg.</span><div class="track"><div class="fill" style="width:74%"></div><div class="capline"></div></div><strong>91%</strong></div>
+    <div class="legend"><span>— Line = 100% capacity</span><span>Red = over 115%</span><span>Sources: SD61, SD62 &amp; School Guide, Nov 2026</span></div>
+  </div>
+  <div class="principle"><strong>Surface, never score.</strong> No rankings on this page — capacity, change, and provenance, and readers draw their own conclusions.</div>
+
+  <div class="chart-box" style="margin-top:18px">
+    <h3>Working calculator — operating vs. nominal capacity</h3>
+    <p class="muted" style="margin:8px 0 0">Utilisation depends on which capacity you divide by. <strong>Operating capacity</strong> is the seats a school is actually staffed and run for; <strong>nominal capacity</strong> is the building's design capacity. The same enrolment can read "nearly full" one way and "room to spare" the other. Type in any school's three numbers and see both readings at once.</p>
+    <div style="overflow-x:auto"><table class="denom">
+      <thead><tr><th>Reference — three Vancouver schools (published figures)</th><th class="num">Operating</th><th class="num">Nominal</th><th>What changes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cunningham Elementary</strong></td><td class="num">71.6%</td><td class="num">64.8%</td><td>Same enrolment, two stories</td></tr>
+        <tr><td><strong>Weir Elementary</strong></td><td class="num">90.0%</td><td class="num">81.5%</td><td>"Nearly full" vs. "room to spare"</td></tr>
+        <tr><td><strong>MacCorkindale Elementary</strong></td><td class="num">66.2%</td><td class="num">60.0%</td><td>Gap widens as utilisation falls</td></tr>
+      </tbody></table></div>
+    <p style="margin:10px 0 0"><strong>152 places apart across the three schools</strong> when the denominator changes.</p>
+    <span class="src">Source: Vik Khanna, LinkedIn post, Oct 31, 2026 (relative date as shown; checked Nov 21, 2026)</span>
+
+    <div class="calc-grid">
+      <div>
+        <div class="field"><label for="inEnrol">Enrolment (students)</label><input type="number" id="inEnrol" min="0" step="1" value="450" inputmode="numeric"></div>
+        <div class="field" style="margin-top:14px"><label for="inOp">Operating capacity (seats)</label><input type="number" id="inOp" min="1" step="1" value="500" inputmode="numeric"></div>
+        <div class="field" style="margin-top:14px"><label for="inNom">Nominal capacity (seats)</label><input type="number" id="inNom" min="1" step="1" value="552" inputmode="numeric"></div>
+        <div class="presets" role="group" aria-label="Load a reference school">
+          <button class="pbtn" type="button" data-preset="weir" aria-pressed="true">Weir — 90.0% / 81.5%</button>
+          <button class="pbtn" type="button" data-preset="cunningham" aria-pressed="false">Cunningham — 71.6% / 64.8%</button>
+          <button class="pbtn" type="button" data-preset="mac" aria-pressed="false">MacCorkindale — 66.2% / 60.0%</button>
+          <button class="pbtn" type="button" data-preset="qa" aria-pressed="false">Queen Alexandra — 142 / 262</button>
+        </div>
+        <p class="muted" style="font-size:.88rem;margin:12px 0 0">Presets for the three Vancouver schools use example enrolment / capacity values that reproduce the published percentages exactly, because the post published percentages, not the underlying seat counts — so spare-seat differences from these examples will not sum to the post's 152, which was calculated in the post from its own counts. Queen Alexandra uses its published counts (142 enrolled, 262 capacity) with the same figure in both capacity fields, because only one capacity was published. Change any number and the result updates.</p>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p style="margin:0;font-weight:600" id="calcTitle">Weir Elementary — worked example</p>
+        <div class="big" style="margin-top:8px"><span id="outOp">90.0%</span> <span style="font-size:1rem;font-weight:600">operating</span><br><span id="outNom">81.5%</span> <span style="font-size:1rem;font-weight:600">nominal</span></div>
+        <table>
+          <tr><td>Gap between the two readings</td><td id="outGap">8.5 pts</td></tr>
+          <tr><td>Spare seats — operating basis</td><td id="outSpareOp">50</td></tr>
+          <tr><td>Spare seats — nominal basis</td><td id="outSpareNom">102</td></tr>
+          <tr><td>Difference in spare seats</td><td id="outSpareDiff">52 seats</td></tr>
+          <tr><td>Reading</td><td id="outVerdict" style="white-space:normal;text-align:right">Nearly full on an operating basis; room to spare on a nominal basis.</td></tr>
+        </table>
+        <p style="margin:12px 0 0;font-size:.9rem"><strong>The data rule this points to:</strong> store both capacities on every school record, label which denominator every published figure uses, and never mix the two in one chart. SD61's published figures (Tillicum 123%, Victoria High 120%, Eagle View 119%) do not state their denominator in the sources checked — which is exactly why the rule matters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUEEN ALEXANDRA BRIEF -->
+<section id="qa-brief" aria-labelledby="qa-h">
+  <h2 id="qa-h">Spotlight brief — Queen Alexandra Elementary, Vancouver</h2>
+  <p class="muted">The same method, applied to one Vancouver school that came up in public discussion in October 2026 — a half-empty, seismically high-risk school next to major new housing. This brief separates what is known from what a decision would still need. It does not invent a proposal.</p>
+  <div class="tgrid" style="margin-top:16px">
+    <div class="tcell" style="background:var(--card);border:1px solid var(--line)"><span class="muted">Enrolment · 2024/25</span><br><strong>142</strong><br><span style="font-size:.9rem">students enrolled</span></div>
+    <div class="tcell" style="background:var(--card);border:1px solid var(--line)"><span class="muted">Capacity</span><br><strong>262</strong><br><span style="font-size:.9rem">142 / 262 = <strong>54% full</strong> · 120 spare seats</span></div>
+    <div class="tcell" style="background:var(--card);border:1px solid var(--line)"><span class="muted">Seismic risk</span><br><strong>H3</strong><br><span style="font-size:.9rem">High seismic risk category, as cited in the post</span></div>
+  </div>
+  <div class="known">
+    <div class="panel">
+      <h3>What is known</h3>
+      <ul>
+        <li><strong>Growth next door:</strong> ~2,000 new homes in six towers at Broadway &amp; Clark.</li>
+        <li><strong>Transit change:</strong> Broadway Subway opening Fall 2027.</li>
+        <li><strong>The open question, asked publicly:</strong> a commenter on the original post asked, <em>"Can you show us what you are proposing?"</em> — no proposal, map, or design was shown in the post.</li>
+      </ul>
+      <span class="src" style="margin-top:12px">Source: Vik Khanna, LinkedIn, Oct 19, 2026 (date as converted Nov 21, 2026) — figures as stated in that post</span>
+    </div>
+    <div class="panel">
+      <h3>What a decision still needs — not in the public post</h3>
+      <ul>
+        <li><strong>Cost:</strong> no estimate published for seismic upgrade, replacement, or expansion.</li>
+        <li><strong>Funder:</strong> no province / district split stated.</li>
+        <li><strong>Catchment impact:</strong> no modelling of which nearby schools gain or lose students.</li>
+        <li><strong>Enrolment from the new homes:</strong> no student-yield estimate for the ~2,000 homes.</li>
+        <li><strong>Design / proposal:</strong> nothing shown to evaluate.</li>
+      </ul>
+      <span class="src" style="margin-top:12px">Checked against the post as read Nov 21, 2026. If any of these exist elsewhere, they were not in that post.</span>
+    </div>
+  </div>
+  <div class="chart-box" style="margin-top:16px">
+    <h3>Scenario — how many students could 2,000 homes add?</h3>
+    <p class="muted" style="margin:8px 0 0">This is <strong>scenario arithmetic, not a forecast and not a district projection</strong>. It simply asks: at different student-yield rates per home, how does the added enrolment compare with Queen Alexandra's 120 spare seats? A real brief would replace these rates with the district's own yield factors.</p>
+    <div style="overflow-x:auto"><table class="scen">
+      <thead><tr><th>Scenario (students per home)</th><th class="num">Added students</th><th class="num">School total</th><th class="num">vs. 262 capacity</th></tr></thead>
+      <tbody>
+        <tr><td>Low — 0.05 per home</td><td class="num">100</td><td class="num">242</td><td class="num">20 seats spare</td></tr>
+        <tr><td>Middle — 0.10 per home</td><td class="num">200</td><td class="num">342</td><td class="num">80 over capacity</td></tr>
+        <tr><td>High — 0.15 per home</td><td class="num">300</td><td class="num">442</td><td class="num">180 over capacity</td></tr>
+      </tbody></table></div>
+    <p style="margin:12px 0 0">Even the middle scenario turns a 54%-full school into an over-capacity one — <em>if</em> those students land in this catchment, which is precisely the catchment-impact question above that has not been modelled publicly. That is the finding: <strong>the decision hinges on numbers nobody has published yet.</strong></p>
+    <div class="principle" style="margin-bottom:0"><strong>Questions a board-ready brief must answer:</strong> What does the fix cost, and who pays? What yield factor does the district use for tower homes? Which neighbouring schools absorb overflow? And what, concretely, is being proposed — upgrade, replace, expand, or re-catchment?</div>
+  </div>
+  <p class="muted" style="margin-top:16px">A second housing-without-schools case, noted briefly: a Collingwood / Thompson discussion cited 1,082 rental homes (~400 family-sized) and a $95M seismic estimate for Thompson with no starting year — again with no nearby-school capacity or enrolment forecast attached. Same gap, same fix: join the housing figures to the school figures, per catchment, with the method stated.</p>
+  <span class="src">Source: Vik Khanna, LinkedIn posts, Oct–Nov 2026, as read Nov 21, 2026</span>
+</section>
+
+<!-- DATA NOTES -->
+<section aria-labelledby="audit-h">
+  <h2 id="audit-h">Data notes — freshness &amp; source checks</h2>
+  <p class="muted">Public school pages and posts were checked the way a data pipeline should be: does the number on screen still match its source, and is the source's age visible? Five notes, each with the check that resolves it.</p>
+  <div class="audit">
+    <div class="arow"><div><span class="sev high">● Check — Stale data?</span><br><strong>SD61 facility condition</strong></div><div>45 of 46 Victoria schools rated "Poor or worse"; 12 flagged on the pages themselves as possibly upgraded / out of date.</div><div><strong>Check:</strong> Reconcile each rating against the latest district / ministry reporting, stamp "as of," re-check oldest first.</div></div>
+    <div class="arow"><div><span class="sev high">● Check — Missing data</span><br><strong>Capacity coverage</strong></div><div>Only 951 of 1,569 public schools have capacity figures; independent schools have none — yet utilisation is a headline measure.</div><div><strong>Check:</strong> Coverage list by district, backfill queue ranked by how often each school is viewed.</div></div>
+    <div class="arow"><div><span class="sev med">● Check — Provenance</span><br><strong>Source line not visible</strong></div><div>No source / "as of" line was visible on the school pages as fetched in text form. It may render in the live app — that needs an in-browser check before calling it a defect.</div><div><strong>Check:</strong> Verify live, then render source + as-of from the underlying record so it cannot drift from the figure.</div></div>
+    <div class="arow"><div><span class="sev med">● Check — Summary accuracy</span><br><strong>Generated summaries</strong></div><div>One school's IB summary text names a different school; a districts index reads "Powell RIver." Small errors, but they signal unreviewed generated text.</div><div><strong>Check:</strong> Entity-match validation (the school named in the text must be the school on the page) plus a human review queue.</div></div>
+    <div class="arow"><div><span class="sev med">● Check — Old sources, current voice</span><br><strong>Public posts citing older plans</strong></div><div>Recent posts cite a June 16, 2025 capital plan (seismic), June 2025 enrolment material, and a Dec 30, 2021 plan (a 76% utilisation figure), with no note on whether the figures have since changed or been funded.</div><div><strong>Check:</strong> Put a source-age stamp on every cited figure, in posts as well as product, with a re-check date.</div></div>
+    <div class="arow"><div><span class="sev low">● Opportunity</span><br><strong>Healthcare &amp; walkability</strong></div><div>A Nov 19, 2026 VTCo blog post quotes realtor Craig Veroni: healthcare "is not on the platform yet, and it is something we are working on," alongside a request for walking time to coffee, bank, and restaurant.</div><div><strong>Next step:</strong> A clinics + walk-time layer per school — sourced, dated, and kept separate from school data.</div></div>
+  </div>
+  <span class="src" style="margin-top:12px">Method: public School Guide pages &amp; VTCo blog, reviewed Nov 2026; LinkedIn posts read in a signed-in, read-only session Nov 21, 2026 (relative dates, so post dates are approximate; truncated posts noted as unseen, not assumed).</span>
+</section>
+
+<!-- TERRITORY BRIEF -->
+<section aria-labelledby="tbrief-h">
+  <h2 id="tbrief-h">Sample output — a one-page territory brief</h2>
+  <p class="muted">What this watch produces for a Langford / Colwood realtor to use in a client conversation. Every figure in it comes from the sections above; nothing in it is invented.</p>
+  <div class="tbrief" style="margin-top:14px">
+    <div class="tbrief-head"><div><strong style="font-family:Fraunces,serif;font-size:1.25rem">Territory Brief — Langford / Colwood</strong><br><span class="muted">Catchment Change Watch · Monthly · For client conversations</span></div><span class="chip">As of Nov 22, 2026</span></div>
+    <div class="tgrid">
+      <div class="tcell"><span class="muted">District utilisation</span><br><strong>117%</strong><br><span style="font-size:.9rem">SD62 — over capacity district-wide</span></div>
+      <div class="tcell"><span class="muted">What's coming</span><br><strong>2,000 seats</strong><br><span style="font-size:.9rem">New Langford secondary · Fall 2030</span></div>
+      <div class="tcell"><span class="muted">Decision point</span><br><strong>Spring 2027</strong><br><span style="font-size:.9rem">Board decision · everything before this is <em>proposed</em></span></div>
+    </div>
+    <p style="margin:16px 0 0"><strong>The one sentence a client needs:</strong> "Belmont and Royal Bay each hold 1,800+ students in a district at 117% — the new Langford school will redraw these catchments, the survey to have a say runs Nov 23 – Dec 4, and no final boundaries exist yet. Anyone who shows you a finished map today is guessing."</p>
+    <span class="src" style="margin-top:12px">Sources: SD62 Catchment &amp; Pathway Review &amp; Phase 2 notice, 2026 · Status labels as published by SD62</span>
+  </div>
+  <div class="chart-box" style="margin-top:16px">
+    <h3>Territory size estimator</h3>
+    <p class="muted" style="margin:8px 0 0">Territory Intelligence is published at <strong>$7 per dissemination area / month</strong>. This estimator is plain arithmetic on that published rate — illustrative only, not a forecast of anyone's revenue.</p>
+    <label for="daRange" style="font-weight:700;display:block;margin:16px 0 6px">Territory size — <span id="daVal">150</span> dissemination areas</label>
+    <input type="range" id="daRange" min="25" max="500" step="25" value="150">
+    <p style="margin:10px 0 0;font-size:1.05rem">At that size: <strong id="calcMonthly">$1,050 / month</strong> · <strong id="calcAnnual">$12,600 / year</strong></p>
+    <span class="src" style="margin-top:8px">Rate source: VTCo Territory Intelligence, $7 / dissemination area / month, as published Nov 2026</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section aria-labelledby="about-h">
+  <h2 id="about-h">About this page</h2>
+  <p style="max-width:68ch">Built by <strong>Sadhik Ahamed</strong> in Victoria, BC — UVic Computer Science (degree awarded Oct 2026, coursework finished April 2026), about two years of co-ops in data, SQL reporting, and dashboards (BC Pension Corporation, UVic, Providence Global Center, Amazon), now a Cloud &amp; Security Engineer at Absolute Software.</p>
+  <p class="muted" style="max-width:68ch">Method, in one paragraph: every figure was taken from a published source and dated; conflicting or stale figures are flagged, not smoothed over; statuses follow the district's own labels (proposed vs. decided); and anything a source has not published — a boundary map, a cost, a forecast — is left blank and named as missing, rather than filled in.</p>
+</section>
+
+<!-- MESSAGES -->
+<section id="messages" aria-labelledby="msg-h">
+  <h2 id="msg-h">Messages to send with the link</h2>
+  <p class="muted">Short on purpose — a check-in and a link, not a pitch. This page is a single self-contained HTML file: put it in a GitHub repo as <span class="mono">index.html</span> and enable GitHub Pages (or host it on your own domain, as with Ask Victoria 2050), then paste that public link into both messages where marked. Send Sathvik's first.</p>
+
+  <h3 style="margin-top:24px">1 — To Sathvik (text / LinkedIn, casual)</h3>
+  <div class="msgbox casual" id="sathvikText">Hey man, long time — how've you been? Saw you're at Jobber now as well as VTCo, congrats.
+
+I built a small thing and wanted your honest take before I show anyone else: a Catchment Change Watch for Victoria / Westshore — the live SD62 review, SD61's over-capacity schools, a working utilisation calculator, and a short brief on Queen Alexandra. All sourced and dated, nothing invented.
+
+[PASTE LINK HERE]
+
+Two-minute look whenever you get a chance — if something's off, I'd rather hear it from you first. Catch me up on Jobber too.</div>
+  <div class="btn-row"><button class="btn" type="button" data-copy="sathvikText" data-toast="toast1">Copy Sathvik's message</button></div>
+  <div class="toast" id="toast1" role="status">Copied — paste your link in, then send.</div>
+
+  <h3 style="margin-top:30px">2 — To Vik (email)</h3>
+  <p class="muted" style="margin:6px 0 12px">Subject: Quick one — built a catchment watch for Victoria / Westshore</p>
+  <div class="msgbox" id="emailText">Hi Vik,
+
+Long time — hope you're well.
+
+I built a small tool I thought you might find useful: a Catchment Change Watch for Victoria / Westshore, around the live SD62 review — Phase 2 survey Nov 23–Dec 4, board decision Spring 2027, new Langford secondary Fall 2030 — with a source and an as-of date on every figure, and proposed vs. decided kept separate throughout.
+
+[PASTE LINK HERE]
+
+It also includes a working version of your operating vs. nominal capacity point (Cunningham / Weir / MacCorkindale), a short brief finishing the Queen Alexandra question, and a few freshness notes on the school data.
+
+No ask here — just wanted your take. Is this useful, or am I missing something? I've shared it with Sathvik as well.
+
+Thanks,
+Sadhik
+Victoria, BC</div>
+  <div class="btn-row"><button class="btn" type="button" data-copy="emailText" data-toast="toast2">Copy Vik's email</button><a class="btn ghost" href="https://www.linkedin.com/in/sadhik-ahamed-sm2607" target="_blank" rel="noopener">Sadhik on LinkedIn ↗</a></div>
+  <div class="toast" id="toast2" role="status">Copied — paste your link in, then send.</div>
+</section>
+
+<footer>
+  <p><strong>Sources &amp; method.</strong> SD62 Catchment &amp; Pathway Review and Phase 2 notices (2026); SD61 published utilisation figures; School Guide (schoolguide.vtco.app) public listings and VTCo blog, incl. Nov 19, 2026; VTCo site for Territory Intelligence pricing ($7 / dissemination area / month). LinkedIn: Vik Khanna, VTCo company page, and Sathvik Divili profiles and posts, read in a signed-in session, read-only, Nov 21, 2026 — post dates converted from relative dates and therefore approximate; feed history ~1 month; truncated posts noted as unseen. Queen Alexandra and Collingwood / Thompson figures are as stated in the LinkedIn posts cited; the Queen Alexandra scenarios are arithmetic on stated yields, not forecasts. Territory estimator is arithmetic on the published $7 rate, not a revenue forecast. Snapshot date Nov 22, 2026. Where a district has not decided, this page says "proposed." Where it has not published, this page draws nothing.</p>
+  <p>Built by <strong>Sadhik Ahamed Shaik Mohammed</strong> — Victoria, BC. Not affiliated with VTCo, SD61, SD62, or the Vancouver School Board. School Guide, Territory Intelligence, and Social Infrastructure Database are VTCo's products and names.</p>
+</footer>
+</div>
+<script>
+(function(){
+  var btns=document.querySelectorAll('.fbtn'), cards=document.querySelectorAll('#cards .scard'), count=document.getElementById('count');
+  function apply(f){ var n=0; cards.forEach(function(c){ var show=f==='all'||c.dataset.d===f||(c.dataset.s||'').split(' ').indexOf(f)>-1; c.style.display=show?'':'none'; if(show)n++; }); count.textContent=n+(n===1?' school / area':' schools / areas')+' shown'; btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.filter===f?'true':'false');}); }
+  btns.forEach(function(b){ b.addEventListener('click',function(){ apply(b.dataset.filter); }); }); apply('all');
+
+  /* Territory estimator */
+  var range=document.getElementById('daRange'), daVal=document.getElementById('daVal'), m=document.getElementById('calcMonthly'), a=document.getElementById('calcAnnual');
+  function money(n){ return '$'+n.toLocaleString('en-CA'); }
+  function terr(){ var da=parseInt(range.value,10); daVal.textContent=da; var mo=da*7; m.textContent=money(mo)+' / month'; a.textContent=money(mo*12)+' / year'; }
+  range.addEventListener('input',terr); terr();
+
+  /* Utilisation calculator */
+  var inE=document.getElementById('inEnrol'), inO=document.getElementById('inOp'), inN=document.getElementById('inNom');
+  var outOp=document.getElementById('outOp'), outNom=document.getElementById('outNom'), outGap=document.getElementById('outGap'),
+      outSO=document.getElementById('outSpareOp'), outSN=document.getElementById('outSpareNom'), outSD=document.getElementById('outSpareDiff'),
+      outV=document.getElementById('outVerdict'), calcTitle=document.getElementById('calcTitle');
+  var presets={
+    weir:{t:'Weir Elementary — worked example', e:450, o:500, n:552},
+    cunningham:{t:'Cunningham Elementary — worked example', e:716, o:1000, n:1105},
+    mac:{t:'MacCorkindale Elementary — worked example', e:662, o:1000, n:1103},
+    qa:{t:'Queen Alexandra Elementary — published counts', e:142, o:262, n:262}
+  };
+  function pct(x){ return (Math.round(x*10)/10).toFixed(1)+'%'; }
+  function ucalc(){
+    var e=parseFloat(inE.value), o=parseFloat(inO.value), n=parseFloat(inN.value);
+    if(!(e>=0)||!(o>0)||!(n>0)){ outOp.textContent='—'; outNom.textContent='—'; outGap.textContent='—'; outSO.textContent='—'; outSN.textContent='—'; outSD.textContent='—'; outV.textContent='Enter an enrolment and two capacities above zero.'; return; }
+    var po=e/o*100, pn=e/n*100;
+    outOp.textContent=pct(po); outNom.textContent=pct(pn);
+    outGap.textContent=(Math.round(Math.abs(po-pn)*10)/10).toFixed(1)+' pts';
+    var so=Math.round(o-e), sn=Math.round(n-e);
+    outSO.textContent=so.toLocaleString('en-CA'); outSN.textContent=sn.toLocaleString('en-CA'); outSD.textContent=Math.abs(sn-so).toLocaleString('en-CA')+' seats';
+    var hi=Math.max(po,pn);
+    outV.textContent = hi>100 ? 'Over capacity on both readings — the denominator changes the size of the problem, not whether there is one.'
+      : hi>=85 ? 'Nearly full on the tighter reading; visibly more room on the looser one. Which figure gets published changes the public story.'
+      : 'Comfortable on both readings — the gap between them is still worth labelling, because it grows as enrolment rises.';
+  }
+  [inE,inO,inN].forEach(function(el){ el.addEventListener('input',function(){ calcTitle.textContent='Your numbers'; document.querySelectorAll('.pbtn').forEach(function(b){b.setAttribute('aria-pressed','false');}); ucalc(); }); });
+  document.querySelectorAll('.pbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var p=presets[b.dataset.preset]; if(!p) return;
+      inE.value=p.e; inO.value=p.o; inN.value=p.n; calcTitle.textContent=p.t;
+      document.querySelectorAll('.pbtn').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+      ucalc();
+    });
+  });
+  ucalc();
+
+  /* Copy buttons */
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var t=document.getElementById(btn.dataset.copy).innerText, toast=document.getElementById(btn.dataset.toast);
+      function done(){ toast.style.display='block'; setTimeout(function(){toast.style.display='none';},4500); }
+      function fallback(){ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); done();}catch(e){} document.body.removeChild(ta); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done).catch(fallback); } else { fallback(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
