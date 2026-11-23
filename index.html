@@ -74,6 +74,16 @@ section{padding:44px 0;border-top:1px solid var(--line)}
 .clock{display:grid;gap:12px;margin-top:14px}@media(min-width:760px){.clock{grid-template-columns:repeat(4,1fr)}}
 .tl{list-style:none;margin:18px 0 0;padding:0}.tl li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}.tl .when{font-family:"IBM Plex Mono",monospace;font-size:.84rem;font-weight:600;color:var(--teal-bright)}.tl li.now .when{color:var(--red)}.badge-now{font-size:.7rem;background:var(--red);color:#fff;border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:middle;white-space:nowrap}
 @media(max-width:560px){.tl li{grid-template-columns:1fr;gap:4px}}
+.conflict-grid{display:grid;gap:14px;margin-top:16px}@media(min-width:900px){.conflict-grid{grid-template-columns:repeat(3,1fr)}}
+.conflict-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.conflict-card h3{font-size:1.12rem;line-height:1.25;margin-bottom:12px}
+.cf-row{border-top:1px solid var(--line);padding:10px 0}
+.cf-row:first-of-type{border-top:none;padding-top:2px}
+.cf-label{display:block;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--teal-bright);font-weight:600;margin-bottom:3px}
+.cf-row p{margin:0;font-size:.94rem;line-height:1.55}
+.rules{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);margin-top:16px}
+.rules ul{margin:10px 0 0;padding-left:18px}
+.rules li{margin:6px 0;font-size:.96rem;line-height:1.55}
 .known{display:grid;gap:14px;margin-top:16px}@media(min-width:760px){.known{grid-template-columns:1fr 1fr}}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
 .panel ul{margin:10px 0 0;padding-left:18px;font-size:.95rem}
@@ -222,7 +232,53 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
   </details>
 </section>
 
-<!-- 4. HOW WE KNOW THIS -->
+<!-- 4. WHEN SOURCES DISAGREE -->
+<section id="disagreements" aria-labelledby="disagree-h">
+  <h2 id="disagree-h">When sources disagree — which one we recommend, and why</h2>
+  <p style="font-size:1.05rem;max-width:72ch;margin:0"><strong>A list of numbers is a snapshot, but choosing between two conflicting numbers — in the open, with the rule shown — is the judgement a realtor or a district actually pays for.</strong></p>
+
+  <div class="rules">
+    <h3>The rules we apply</h3>
+    <p class="muted" style="margin:6px 0 0;font-size:.95rem">First, the source hierarchy already used on this page — then the conflict rules that decide between two figures for the same thing.</p>
+    <ul>
+      <li><strong>Source hierarchy:</strong> official district / ministry / city documents first, then the organisation's own announcements, then news reporting, then secondary summaries — a figure is never presented as stronger than its source.</li>
+      <li><strong>Exact beats rounded</strong> — an exact count beats a rounded “more than” figure.</li>
+      <li><strong>Primary beats secondary</strong> — a primary enrolment file beats a press summary of it.</li>
+      <li><strong>Newest beats oldest when the method is the same</strong> — the more recent set wins over an older one.</li>
+      <li><strong>The district's own preferred model beats a regional one</strong> — for short- and medium-term planning, the model the district itself prefers takes precedence.</li>
+      <li><strong>A single unverified source loses to “unknown”</strong> — if only one unverified source states a figure and no independent source confirms it, the figure is shown as not verified, not published as fact.</li>
+      <li><strong>When no rule settles it, the conflict is flagged as unresolved</strong> — the page does not pick a winner.</li>
+    </ul>
+  </div>
+
+  <div class="conflict-grid">
+    <article class="conflict-card">
+      <h3>Belmont &amp; Royal Bay enrolment</h3>
+      <div class="cf-row"><span class="cf-label">What disagrees</span><p>School Guide's district page lists <strong>Belmont 1,705 students / 1,200 operating capacity</strong> and <strong>Royal Bay 1,725 / 1,400</strong> — exact per-school enrolment counts, Nov 2026. An SD62 October 2025 announcement, as summarised by listingsvictoria.ca, says Belmont and Royal Bay were <strong>“each serving more than 1,800 students”</strong> — rounded, no exact count, secondary summary.</p></div>
+      <div class="cf-row"><span class="cf-label">Rule applied</span><p>Exact beats rounded; a primary enrolment file beats a press summary.</p></div>
+      <div class="cf-row"><span class="cf-label">Recommendation</span><p>Use School Guide's exact per-school counts — <strong>Belmont 1,705 / 1,200</strong> and <strong>Royal Bay 1,725 / 1,400</strong>.</p></div>
+      <div class="cf-row"><span class="cf-label">Not used — still shown</span><p><strong>“1,800+ students each”</strong> for Belmont and Royal Bay — SD62 October 2025 announcement, as summarised by listingsvictoria.ca. Shown here, not used in the cases or calculator.</p></div>
+    </article>
+
+    <article class="conflict-card">
+      <h3>Which projection set to use</h3>
+      <div class="cf-row"><span class="cf-label">What disagrees</span><p>The five projection sets in the VSB Facilities Planning Committee report, 16 June 2025, include <strong>Metro Vancouver, March 2024</strong> (about 15 months old at the report) and <strong>Baragar with Local Knowledge Added, April 2025</strong> (about 2 months old at the report, and the district's preferred model for short- and medium-term planning, per the same report).</p></div>
+      <div class="cf-row"><span class="cf-label">Rule applied</span><p>Newest beats oldest; the district's own preferred model beats a regional model.</p></div>
+      <div class="cf-row"><span class="cf-label">Recommendation</span><p>Use <strong>Baragar with Local Knowledge Added, April 2025</strong>. <strong>Caveat:</strong> no record read states which set governs which determination, so this is a recommendation, not a ruling — and the other four sets stay listed in the “How we know this” projection table.</p></div>
+      <div class="cf-row"><span class="cf-label">Not used — still shown</span><p><strong>Metro Vancouver, March 2024</strong> — the regional projection set, about 15 months old at the June 2025 report. Shown here and in the projection table, not recommended as the set to plan from.</p></div>
+    </article>
+
+    <article class="conflict-card">
+      <h3>The “400 family-sized homes” at Kingsway</h3>
+      <div class="cf-row"><span class="cf-label">What disagrees</span><p>One Instagram infographic (Oct 22, 2026) says <strong>400 of the 1,082 homes</strong> at Kingsway have two or three bedrooms (about 37%). No independent source was found for that breakdown. The <strong>1,082 total itself stays</strong>, as reported by Daily Hive, Nov 19, 2026.</p></div>
+      <div class="cf-row"><span class="cf-label">Rule applied</span><p>A single unverified source loses to “unknown.”</p></div>
+      <div class="cf-row"><span class="cf-label">Recommendation</span><p>Do <strong>not</strong> publish the 400 figure — show it as <strong>“not verified.”</strong> The bedroom mix at Kingsway is treated as unknown until an independent source confirms it.</p></div>
+      <div class="cf-row"><span class="cf-label">Not used — still shown</span><p><strong>400 family-sized homes (about 37% of 1,082)</strong> — single Instagram infographic, Oct 22, 2026, no independent source found. Shown here as not verified, not used anywhere else on this page.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- 5. HOW WE KNOW THIS -->
 <section aria-labelledby="how-h" style="padding-top:10px">
   <details class="how">
     <summary id="how-h">How we know this</summary>
