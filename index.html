@@ -83,6 +83,10 @@ section{padding:52px 0;border-top:1px solid var(--line)}
 @media (prefers-reduced-motion: reduce){.mfill{transition:none}}
 .yield{width:100%;border-collapse:collapse;margin-top:14px;font-size:.93rem}.yield th,.yield td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.yield th{font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}.yield td.num,.yield th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 @media(max-width:560px){.yield{font-size:.82rem}.yield th,.yield td{padding:7px 5px}.yield td.num{white-space:normal}}
+.data{width:100%;border-collapse:collapse;margin-top:14px;font-size:.93rem}.data th,.data td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.data th{font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}.data td.num,.data th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:560px){.data{font-size:.8rem}.data th,.data td{padding:7px 5px}.data td.num{white-space:normal}}
+.flabel{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.76rem;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin-top:12px;line-height:1.5}
+.clock{display:grid;gap:12px;margin-top:14px}@media(min-width:760px){.clock{grid-template-columns:repeat(4,1fr)}}
 .tl{list-style:none;margin:18px 0 0;padding:0}.tl li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}.tl .when{font-family:"IBM Plex Mono",monospace;font-size:.84rem;font-weight:600;color:var(--teal-bright)}.tl li.now .when{color:var(--red)}.badge-now{font-size:.7rem;background:var(--red);color:#fff;border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:middle;white-space:nowrap}
 @media(max-width:560px){.tl li{grid-template-columns:1fr;gap:4px}}
 .known{display:grid;gap:14px;margin-top:16px}@media(min-width:760px){.known{grid-template-columns:1fr 1fr}}
@@ -105,6 +109,9 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
     <a class="btn" href="#calculator">Run the yield calculator ↓</a>
     <a class="btn ghost" href="#cases">See the forecast cases</a>
     <a class="btn ghost" href="#timeline">SD62 review timeline</a>
+    <a class="btn ghost" href="#provenance">Which forecast governs?</a>
+    <a class="btn ghost" href="#money">The money layer</a>
+    <a class="btn ghost" href="#charges">Per-home charges</a>
   </div>
   <div class="meta-row">
     <span class="chip">Snapshot: Nov 22, 2026</span>
@@ -155,6 +162,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
       <li><strong>Langford</strong> — built <strong>5,062 new homes between 2016 and 2021</strong>; population grew <strong>31.8%</strong> over the same census period.</li>
     </ul>
     <div class="callout gold"><strong>Reading:</strong> the growth is not a surprise arriving later — the homes are already approved and building. The district projection says the system passes 120% in 2027. The open question is which individual schools tip first, and that is a per-school, housing-by-housing question — see Cases 2 and 3.</div>
+    <span class="flabel">Forecast label — End year: 2032 · Producer: SD62 Sooke · Produced: 2025–2028 Financial Plan (summarised Nov 2025)</span>
     <span class="src" style="margin-top:12px">Sources: SD62 district enrolment &amp; capacity figures, Nov 2026 · SD62 2025–2028 Financial Plan, as summarised by trustee Jeff Bateman, updated Nov 2025 (district projection) · Royal Bay / Royal Beach project figures; Royal Beach press release via Citified, Jan 24, 2022 · Statistics Canada 2021 Census, via Citified (Langford homes &amp; population)</span>
   </article>
 
@@ -167,6 +175,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
       <div class="stat"><strong>Fall 2030</strong><span>new Langford secondary opens — 2,000 students, 2460 Gateway Road</span></div>
     </div>
     <p style="margin:14px 0 0">Both Westshore secondaries are well over capacity today. The relief is real and approved — a new <strong>2,000-student Langford secondary</strong> — but it does not open until <strong>Fall 2030</strong>. Between now and then, the district projection has SD62 passing 120% utilisation in 2027 and continuing to grow at roughly 400 students a year. <strong>The forecast is the gap: 2027–2030, four school years of growth with no new secondary seats.</strong></p>
+    <span class="flabel">Forecast label — End year: 2032 · Producer: SD62 Sooke · Produced: 2025–2028 Financial Plan (summarised Nov 2025) — same district projection as Case 1</span>
     <span class="src" style="margin-top:12px">Sources: SD62 school capacity figures, Nov 2026 · BC Government news release, Oct 1, 2025 (new Langford secondary, 2,000 students, Fall 2030, 2460 Gateway Road) · SD62 2025–2028 Financial Plan projection, as summarised Nov 2025</span>
   </article>
 
@@ -196,6 +205,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
       <li><strong>Scenario:</strong> 1,044 high-rise homes × 0.05 students per unit ≈ <strong>52 students</strong> — against 120 spare seats, absorbable on its own.</li>
       <li><strong>Scenario:</strong> 3,300 high-rise homes × 0.05 ≈ <strong>165 students</strong> — more than the school's 120 spare seats, <em>if</em> they were all in this catchment, which is not established.</li>
     </ul>
+    <span class="flabel">Forecast label — End year: 2031 · Producer: Vancouver School Board · Produced: May 2022 (Downtown East Family of Schools Strategy, enrolment forecast to 112)</span>
     <span class="src" style="margin-top:12px">Sources: Vancouver School Board figures, 2024/25 (142 enrolled, 262 capacity, seismic H1) · VSB May 2022 Downtown East Family of Schools Strategy (enrolment forecast to 112 by 2031; 136 enrolled 2023/24) · City of Vancouver, Shape Your City — 1780 E Broadway approval, Council Jun 10, 2025 · VCC Broadway campus redevelopment announcement, Jul 24, 2023 (proposed, not approved) · Yield rate: VSB Enrolment Update Report 2025, Jun 16, 2025, Figure 23</span>
   </article>
 
@@ -207,6 +217,61 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
     <div class="callout teal"><strong>The finding is an absence:</strong> no published catchment-impact modelling exists for this site. Nobody has publicly modelled where roughly 54 students (1,082 high-rise homes at the published 0.05 yield — see the calculator) would go, given that the nearest elementary school is closed. That modelling gap, on a live application of this size, is exactly what a housing → schools forecast exists to close.</div>
     <span class="src" style="margin-top:12px">Sources: Daily Hive, reported Nov 19, 2026 (application under review; Council vote Nov 17, 2026; no hearing date) · Vancouver School Board (Sir Guy Carleton closure; fire Aug 2016; closure bylaw Dec 2025) · Yield rate: VSB Enrolment Update Report 2025, Jun 16, 2025, Figure 23</span>
   </article>
+</section>
+
+<!-- PROVENANCE: FIVE SETS, ONE REPORT -->
+<section id="provenance" aria-labelledby="prov-h">
+  <h2 id="prov-h">Five projection sets, one report — and no record of which one governs</h2>
+  <p style="max-width:72ch">Before asking what a forecast says, ask which forecast it is. A single Vancouver School Board committee report carries <strong>five enrolment projection sets from four producers, produced across a 13-month span</strong> — and no record read for this page states which set governs which determination. This page now follows the fix that gap points to: <strong>every set gets a column naming the determination it governs, and a base-date line per producer.</strong> Where the record is silent, the column says so — it is not filled in by guesswork.</p>
+  <div class="chart-box">
+    <h3>Five sets, one report</h3>
+    <p class="muted" style="margin:6px 0 0;font-size:.95rem">VSB Facilities Planning Committee report, 16 June 2025. <strong>No numeric values are shown for these sets</strong> — the sets were never published against a common base date, so placing their numbers side by side would manufacture a comparison that does not exist.</p>
+    <table class="data">
+      <thead><tr><th>Projection set</th><th>Producer</th><th>Produced</th><th class="num">Age at report</th><th>Determination it governs</th><th>Base date</th></tr></thead>
+      <tbody>
+        <tr><td>Regional projection set</td><td>Metro Vancouver</td><td>Mar 2024</td><td class="num">~15 months</td><td>Not stated in any record read</td><td>Not stated</td></tr>
+        <tr><td>Baseline</td><td>Baragar</td><td>Nov 2024</td><td class="num">~7 months</td><td>Not stated in any record read</td><td>Not stated</td></tr>
+        <tr><td>Ministry projection set</td><td>MECC (Ministry of Education and Child Care)</td><td>Dec 2024</td><td class="num">~6 months</td><td>Not stated in any record read</td><td>Not stated</td></tr>
+        <tr><td>Provincial statistics set</td><td>BC Stats</td><td>Feb 2025</td><td class="num">~4 months</td><td>Not stated in any record read</td><td>Not stated</td></tr>
+        <tr><td>With Local Knowledge Added</td><td>Baragar</td><td>Apr 2025</td><td class="num">~2 months</td><td>Not stated in any record read</td><td>Not stated</td></tr>
+      </tbody>
+    </table>
+    <div class="callout gold"><strong>Stated plainly:</strong> no record read states which set governs which determination — a <strong>capital request</strong>, a <strong>closure</strong>, a <strong>catchment change</strong>, or a <strong>surplus finding</strong>. There is <strong>no reconciliation between the five sets</strong> and <strong>no common base date</strong>. Five sets, four producers, 13 months apart, one report.</div>
+    <span class="src" style="margin-top:12px">Source: VSB Facilities Planning Committee report, 16 Jun 2025 (authors Jessie Gresley-Jones and James de Hoop), as analysed in "Five projection sets, thirteen months apart," Nov 18, 2026 · As of Nov 22, 2026</span>
+  </div>
+
+  <h3 style="margin-top:30px">One district, four horizons</h3>
+  <p class="muted" style="max-width:72ch">The same district also runs several forecast horizons at once. The ministry floor is a 10-year timeframe — everything above it is a local choice, and no record states who chose it or why.</p>
+  <ol class="tl">
+    <li><span class="when">Apr 2019</span><span><strong>The ministry floor.</strong> A Long Range Facilities Plan is expected to cover a <strong>10-year timeframe at a minimum</strong>. Every horizon longer than 10 years is an unrecorded local choice.</span></li>
+    <li><span class="when">25 Jan 2021</span><span><strong>LRFP approved.</strong> The published Long Range Facilities Plan (2020 plan, approved 25 Jan 2021; 2021 Update May 2022) runs to <strong>2031</strong>.</span></li>
+    <li><span class="when">To 2036</span><span><strong>Some district projections</strong> run further, to <strong>2036</strong>.</span></li>
+    <li><span class="when">16 Jun 2025</span><span><strong>Three horizons at once.</strong> The June 2025 committee report runs a short term (next 3 years), a medium term (10–15 years) and a long term (15–30 years) simultaneously, with charts to <strong>2050</strong>.</span></li>
+    <li><span class="when">Dec 2025</span><span><strong>The closure decision</strong> used a projection set running to <strong>2039</strong> — see the forward view below.</span></li>
+  </ol>
+  <span class="flabel">Horizon labels — LRFP: end year 2031 · Producer: Vancouver School Board · Approved 25 Jan 2021, updated May 2022 &nbsp;|&nbsp; Closure set: end year 2039 · Producer: Baragar Plus Local Knowledge · Used Dec 2025</span>
+  <span class="src" style="margin-top:10px">Sources: LRFP Guidelines, Apr 2019 (10-year minimum) · VSB Long Range Facilities Plan (2020 plan, approved 25 Jan 2021; 2021 Update May 2022) · VSB Facilities Planning Committee report, 16 Jun 2025 · As analysed in "One district, four horizons," Oct 26, 2026 · As of Nov 22, 2026</span>
+</section>
+
+<!-- 2039 FORWARD VIEW -->
+<section id="forward-2039" aria-labelledby="fwd-h">
+  <h2 id="fwd-h">The 2039 forward view — Cunningham, Weir, MacCorkindale</h2>
+  <p style="max-width:72ch">This is <strong>the district's published projection</strong> — the Baragar Plus Local Knowledge model, which projects to 2039 only — presented as published. It is <strong>not a forecast of this page</strong>. The utilisation percentages in the last two columns are different: they are <strong>computed from the published figures, not published</strong>, and are labelled that way.</p>
+  <div class="chart-box">
+    <table class="data">
+      <thead><tr><th>School</th><th class="num">Enrolled 2024–25</th><th class="num">Projected 2039</th><th class="num">Change</th><th class="num">2039 utilisation — operating*</th><th class="num">2039 utilisation — nominal*</th></tr></thead>
+      <tbody>
+        <tr><td>Cunningham</td><td class="num">428</td><td class="num">408</td><td class="num">−20</td><td class="num">68.2% (408/598)</td><td class="num">61.8% (408/660)</td></tr>
+        <tr><td>Weir</td><td class="num">379</td><td class="num">318</td><td class="num">−61</td><td class="num">75.5% (318/421)</td><td class="num">68.4% (318/465)</td></tr>
+        <tr><td>MacCorkindale</td><td class="num">294</td><td class="num">284</td><td class="num">−10</td><td class="num">64.0% (284/444)</td><td class="num">58.0% (284/490)</td></tr>
+        <tr><td><strong>Three schools combined</strong></td><td class="num"><strong>1,101</strong></td><td class="num"><strong>1,010</strong></td><td class="num"><strong>−91 (−8.3% over 14 years)</strong></td><td class="num" colspan="2"><strong>69.0% of combined operating capacity 1,463</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="font-size:.9rem;margin:12px 0 0">* Forward utilisation is <strong>computed from the published figures, not published</strong> by the district. Enrolment and projection figures are the district's, as published.</p>
+    <span class="flabel">Forecast label — End year: 2039 · Producer: Baragar Plus Local Knowledge model (district's published projection) · Presented at info session, 28 Oct 2025</span>
+  </div>
+  <div class="callout red"><strong>The finding — an unpublished model behind published inputs:</strong> the participation rate behind this model is <em>named</em> — a "Population-Based Participation Rate Model" — but <strong>its value appears nowhere</strong>. The "local knowledge" adjustment is stated to be applied, but not <strong>what it changed, at which school, or in which direction</strong>. A second analyst holding all three named input series <strong>cannot reproduce the 2039 figures</strong>. That irreproducibility is the finding — not a flaw to smooth over.</div>
+  <span class="src" style="margin-top:12px">Sources: "Published inputs, an unpublished model, and one number," Oct 7, 2026 · Info session slides, 28 Oct 2025 · Baragar Plus Local Knowledge model, projections to 2039 only · As of Nov 22, 2026</span>
 </section>
 
 <!-- YIELD CALCULATOR -->
@@ -286,6 +351,79 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
   <span class="src" style="margin-top:10px">Sources: SD62 Catchment &amp; Pathway Review schedule, 2026 · BC Government news release, Oct 1, 2025 (new Langford secondary)</span>
 </section>
 
+<!-- MONEY LAYER -->
+<section id="money" aria-labelledby="money-h">
+  <h2 id="money-h">The money layer — what getting capacity wrong costs</h2>
+  <p class="muted" style="max-width:72ch">Forecasts are not abstract. When a district runs out of room — or holds a building it cannot use — the miss lands in dollars. Two published ledgers, stated exactly as published.</p>
+
+  <article class="case">
+    <span class="tag over">District funded 90%</span>
+    <h3>Richmond: a $60 million school site, 90% paid for by selling another school</h3>
+    <p style="margin:0">On <strong>23 June 2025</strong> the Richmond Board of Education announced the purchase of the site and building at <strong>8671 Odlin Crescent</strong> (a school opened in 1962) for a new <strong>City Centre Elementary</strong>, with an opening target as early as <strong>September 2026</strong>. The enrolment case behind it: enrolment up <strong>42% over four years</strong>, in schools built for <strong>1,641 students</strong> now serving <strong>over 2,000</strong> — at least <strong>359 students over</strong>, roughly <strong>122% of the built figure</strong>.</p>
+    <div class="statgrid">
+      <div class="stat"><strong>$60M</strong><span>purchase price — site + building, 8671 Odlin Crescent</span></div>
+      <div class="stat"><strong>$6M / $54M</strong><span>province $6M · district $54M (calculation: $60M − $6M), from proceeds of the Steveston Secondary sale</span></div>
+      <div class="stat"><strong>$59.5M vs $6M</strong><span>with the $5.5M renovation (local capital project), district outlay is ~10:1 against the province — district 90%, province 10%</span></div>
+    </div>
+    <div class="callout gold"><strong>The proceeds rule:</strong> under <em>Allocation of Proceeds from the Disposition of Capital Assets</em> (issued 18 Feb 2004, last revised 18 Dec 2025), where the split of sale proceeds is undetermined the default is <strong>25% local / 75% minister-restricted</strong>. Applied to $54M for illustration only, that is <strong>$13.5M at district discretion / $40.5M requiring minister approval</strong>. Whether the Steveston proceeds fell to that default <strong>stays open</strong> — it is not stated in the records read.</div>
+    <span class="src" style="margin-top:12px">Sources: Richmond Board of Education announcement, 23 Jun 2025 · District share calculated as $60M − $6M, as in "Ninety per cent of the price came from a school sale," Nov 16, 2026 · Allocation of Proceeds from the Disposition of Capital Assets, issued 18 Feb 2004, last revised 18 Dec 2025 · As of Nov 22, 2026</span>
+  </article>
+
+  <article class="case">
+    <span class="tag proj">Holding-cost clock</span>
+    <h3>Carleton: nine years of holding a school that stopped enrolling in 2016</h3>
+    <p style="margin:0"><strong>Sir Guy Carleton Elementary, Vancouver</strong> (the closed school in Case 5) caught fire in <strong>August 2016</strong> and stopped enrolling students that year. The closure bylaw passed third reading on <strong>18 Dec 2025</strong>, by a <strong>5–3 vote</strong> — <strong>9 years 4 months</strong> after the fire. For all of that time, the building sat out of use and the holding cost ran.</p>
+    <div class="clock">
+      <div class="stat"><strong>Aug 2016</strong><span>clock starts — fire; school stops enrolling students</span></div>
+      <div class="stat"><strong>~$65,000 / yr</strong><span>annual holding cost, paid from operating funds</span></div>
+      <div class="stat"><strong>$650,000</strong><span>holding cost to date (closure report, 17 Dec 2025)</span></div>
+      <div class="stat"><strong>$8–10M</strong><span>repair estimate (Facilities Planning Committee, 7 Jun 2023) — 12.3–15.4× the holding total to date</span></div>
+    </div>
+    <div class="callout red"><strong>The number the board never controlled:</strong> the district "has been denied multiple funding requests to repair and seismically upgrade the school" — so the $8–10M repair was <strong>never spendable</strong>. The only number the board actually controlled was the holding cost, paid year after year from operating funds.</div>
+    <span class="src" style="margin-top:12px">Sources: VSB closure report, 17 Dec 2025, p. 3 · Info-session slides, 28 Oct 2025 · Facilities Planning Committee, 7 Jun 2023 (repair estimate) · As analysed in "The price that never had to be argued," Oct 12, 2026 · As of Nov 22, 2026</span>
+  </article>
+</section>
+
+<!-- PER-HOME CHARGE COMPARATOR -->
+<section id="charges" aria-labelledby="charges-h">
+  <h2 id="charges-h">Per-home school charges — a fee actually charged vs. ceilings on paper</h2>
+  <p style="max-width:72ch">Some jurisdictions charge each new home a set amount toward school capacity. Comparing them honestly means keeping one distinction straight: <strong>an amount actually charged is not the same kind of number as a regulatory ceiling.</strong></p>
+  <div class="known">
+    <div class="panel">
+      <h3>City of Redmond, WA — amounts actually charged</h3>
+      <table class="data">
+        <thead><tr><th>Per dwelling unit</th><th class="num">1 Jan 2025</th><th class="num">1 Jan 2026</th></tr></thead>
+        <tbody>
+          <tr><td>School impact fee — single-family</td><td class="num">$5,972</td><td class="num">$7,277</td></tr>
+          <tr><td>School impact fee — multi-family</td><td class="num">nil</td><td class="num">$170</td></tr>
+          <tr><td>School administration fee</td><td class="num">—</td><td class="num">$65</td></tr>
+          <tr><td><strong>Single-family total</strong></td><td class="num">—</td><td class="num"><strong>$7,342</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.95rem">The single-family fee rose <strong>$1,305 in one year — +21.9%</strong>. The fee is collected by the city on behalf of the <strong>Lake Washington School District</strong>.</p>
+      <span class="src">Source: City of Redmond 2026 Impact Fees Schedule, Ordinance 3240, effective 1 Jan 2026 · As of Nov 22, 2026</span>
+    </div>
+    <div class="panel">
+      <h3>British Columbia — regulatory ceilings, not rates in force</h3>
+      <table class="data">
+        <thead><tr><th>Density</th><th class="num">Ceiling per dwelling unit</th></tr></thead>
+        <tbody>
+          <tr><td>Low density</td><td class="num">$1,000</td></tr>
+          <tr><td>Medium-low</td><td class="num">$900</td></tr>
+          <tr><td>Medium</td><td class="num">$800</td></tr>
+          <tr><td>Medium-high</td><td class="num">$700</td></tr>
+          <tr><td>High density</td><td class="num">$600</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.95rem">The <strong>School Site Acquisition Charge</strong> is charged per dwelling unit and collected by local government for boards of education, to fund new school sites, under the <em>Local Government Act</em>. These figures are the <strong>maximums a regulation permits</strong> — the rate actually in force in any given municipality requires a per-municipality lookup, which was not read, and no ceiling here is presented as a rate in force.</p>
+      <span class="src">Source: B.C. Reg. 17/2000 (School Site Acquisition Charge ceilings) · Local Government Act · As of Nov 22, 2026</span>
+    </div>
+  </div>
+  <div class="callout teal"><strong>A design difference, not a shortfall:</strong> Redmond's $7,277 is an amount actually charged per single-family home; the BC figures are ceilings. The charged fee is <strong>7.3× the BC low-density maximum</strong> and <strong>12.1× the high-density maximum</strong> — that gap describes two differently designed systems, not money BC failed to collect.</div>
+  <div class="principle"><strong>The plan comes before the fee.</strong> In Washington, an impact fee may only fund system improvements set out in a capital facilities plan (Growth Management Act, RCW 36.70A.070(3)). In BC, an Eligible School Sites Proposal must rest on a district long-term facilities plan of <strong>at least 10 years</strong>. No plan, no fee — which is why the horizons in the provenance section above matter in dollars, not just in years.</div>
+  <span class="src">Sources: "The plan comes before the fee," Oct 28, 2026 · City of Redmond 2026 Impact Fees Schedule, Ordinance 3240 · B.C. Reg. 17/2000 · Growth Management Act RCW 36.70A.070(3) · As of Nov 22, 2026</span>
+</section>
+
 <!-- CANNOT FORECAST YET -->
 <section aria-labelledby="cant-h">
   <h2 id="cant-h">What we cannot forecast yet</h2>
@@ -315,6 +453,8 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
 <section aria-labelledby="method-h">
   <h2 id="method-h">Method — how districts forecast, and the gap this page fills</h2>
   <p style="max-width:72ch">Districts do not guess enrolment. They forecast with <strong>Baragar Systems cohort-survival modelling</strong> — tracking each grade cohort as it moves through the system — combined with <strong>local knowledge: municipal development data and yield assumptions</strong> about how many students new housing will produce. The Vancouver School Board's June 2025 enrolment update, for example, compares <strong>five scenarios</strong> and publishes a <strong>2039 utilisation map</strong> — inside a board agenda PDF.</p>
+  <span class="flabel">Forecast label — End year: 2039 · Producer: Vancouver School Board · Produced: 16 Jun 2025 (Enrolment Update Report 2025)</span>
+  <p style="max-width:72ch;margin-top:14px">The yield calculator above carries its own label: <strong>no end year</strong> — it is a scenario tool, not a dated forecast. Its yield rates were <strong>produced by the Vancouver School Board on 16 Jun 2025</strong> (Enrolment Update Report 2025, Figure 23).</p>
   <p style="max-width:72ch">That is the gap. The modelling exists, but it lives in agenda packages and financial plans. <strong>Nobody publishes a live, per-school, housing-driven "tips over in year X" list in one public place.</strong> This page is a prototype of that list: real housing pipeline figures, joined to real school capacity figures, run through published yield rates, with every step sourced and dated.</p>
   <div class="known">
     <div class="panel"><h3>Rules this page follows</h3><ul><li>Every figure carries a source and an as-of date.</li><li>Proposed is never shown as decided; under review is labelled under review.</li><li>District projections are labelled as the district's — not presented as this page's forecast.</li><li>No boundary is drawn, and no catchment asserted, until a district publishes it.</li></ul></div>
@@ -323,7 +463,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
 </section>
 
 <footer>
-  <p><strong>Catchment Change Watch</strong> — a housing → schools forecast prototype. Sources: SD62 district and school enrolment, capacity &amp; facility figures (Nov 2026); SD62 2025–2028 Financial Plan, as summarised by trustee Jeff Bateman (updated Nov 2025); SD62 Catchment &amp; Pathway Review schedule (2026); BC Government news release (Oct 1, 2025); Vancouver School Board figures (2024/25), May 2022 Downtown East Family of Schools Strategy, and Enrolment Update Report 2025 (Jun 16, 2025, Figure 23); City of Vancouver, Shape Your City (Jun 10, 2025); VCC Broadway campus announcement (Jul 24, 2023); Statistics Canada 2021 Census via Citified; Royal Beach press release via Citified (Jan 24, 2022); Daily Hive (Nov 19, 2026); District of Saanich council materials (Nov 23, 2026). Snapshot date Nov 22, 2026. All calculator outputs are scenarios applying published yield rates — not predictions, and not district forecasts.</p>
+  <p><strong>Catchment Change Watch</strong> — a housing → schools forecast prototype. Sources: SD62 district and school enrolment, capacity &amp; facility figures (Nov 2026); SD62 2025–2028 Financial Plan, as summarised by trustee Jeff Bateman (updated Nov 2025); SD62 Catchment &amp; Pathway Review schedule (2026); BC Government news release (Oct 1, 2025); Vancouver School Board figures (2024/25), May 2022 Downtown East Family of Schools Strategy, and Enrolment Update Report 2025 (Jun 16, 2025, Figure 23); City of Vancouver, Shape Your City (Jun 10, 2025); VCC Broadway campus announcement (Jul 24, 2023); Statistics Canada 2021 Census via Citified; Royal Beach press release via Citified (Jan 24, 2022); Daily Hive (Nov 19, 2026); District of Saanich council materials (Nov 23, 2026); VSB Facilities Planning Committee report (Jun 16, 2025), LRFP Guidelines (Apr 2019), VSB Long Range Facilities Plan (approved Jan 25, 2021; 2021 Update May 2022), VSB closure report (Dec 17, 2025) and info-session slides (Oct 28, 2025); Richmond Board of Education announcement (Jun 23, 2025); Allocation of Proceeds from the Disposition of Capital Assets (issued Feb 18, 2004; last revised Dec 18, 2025); City of Redmond 2026 Impact Fees Schedule, Ordinance 3240 (effective Jan 1, 2026); B.C. Reg. 17/2000; Growth Management Act RCW 36.70A.070(3). Snapshot date Nov 22, 2026. All calculator outputs are scenarios applying published yield rates — not predictions, and not district forecasts.</p>
   <p>Not affiliated with any school district. District and school names are used only to identify the public records this watch tracks.</p>
 </footer>
 </div>
