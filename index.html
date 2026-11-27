@@ -84,6 +84,12 @@ section{padding:44px 0;border-top:1px solid var(--line)}
 .rules{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);margin-top:16px}
 .rules ul{margin:10px 0 0;padding-left:18px}
 .rules li{margin:6px 0;font-size:.96rem;line-height:1.55}
+.verdict-strip{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 22px;margin:0 0 6px}
+.verdict-strip div{padding:11px 0;font-weight:700;font-size:1.02rem;line-height:1.45;border-top:1px solid var(--line)}
+.verdict-strip div:first-child{border-top:none}
+.case>summary .src{margin-top:5px}
+.cf-rec{background:var(--teal2);border-radius:10px;padding:12px 14px;margin-bottom:6px;border-top:none}
+.cf-rec p{font-size:1rem;line-height:1.5}
 .known{display:grid;gap:14px;margin-top:16px}@media(min-width:760px){.known{grid-template-columns:1fr 1fr}}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
 .panel ul{margin:10px 0 0;padding-left:18px;font-size:.95rem}
@@ -107,6 +113,12 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
   <h1>Will this school <em>tip over capacity</em> when the new homes arrive?</h1>
   <p class="lede">Pick a school, pick the housing, see if it tips over.</p>
 </header>
+
+<div class="verdict-strip" aria-label="Headline verdicts">
+  <div>SD62: already 117% full — over 120% by 2027.</div>
+  <div>Queen Alexandra: 1,082 new homes → still 74.8% full, does not tip over.</div>
+  <div>Kingsway: 1,082 homes next to a closed school — no catchment answer published yet.</div>
+</div>
 
 <!-- 2. THE TOOL -->
 <section id="calculator" style="border-top:none;padding-top:10px" aria-labelledby="calc-h">
@@ -171,7 +183,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
   <h2 id="cases-h">Three cases</h2>
 
   <details class="case">
-    <summary><strong>SD62 district</strong>117% today, passing 120% by 2027 and 130% by 2032 · ~400 new students a year · relief (new Langford secondary, 2,000 students) not until Fall 2030 — tap to expand</summary>
+    <summary><strong>SD62 district</strong>Already 117% full — over 120% by 2027.<span class="src">Sources: SD62 enrolment &amp; capacity, Nov 2026 · SD62 Financial Plan, as summarised by trustee Jeff Bateman, Nov 2025</span></summary>
     <div class="case-body">
       <p style="margin:14px 0 0">SD62 already runs at <strong>14,543 students, 117% of operating capacity</strong>, with <strong>19 of 26 schools</strong> that have capacity figures sitting over capacity. The projection in the SD62 Financial Plan, as summarised by trustee Jeff Bateman — a secondary summary, not a direct quote from the plan, and not a forecast of this page — has utilisation passing <strong>120% by 2027</strong> and <strong>130% by 2032</strong>, on roughly <strong>4.3% annual growth, about 400 new students per year</strong>, requiring <strong>50+ additional portables</strong>.</p>
       <p style="margin:12px 0 0"><strong>Inside the district:</strong> Millstream Elementary is already at <strong>168%</strong> (335 students / 199 operating capacity); Belmont Secondary is at <strong>142%</strong> (1,705 / 1,200) and Royal Bay Secondary at <strong>123%</strong> (1,725 / 1,400), with the 2027–2030 gap years before the new Langford secondary opens in Fall 2030.</p>
@@ -203,7 +215,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
   </details>
 
   <details class="case">
-    <summary><strong>Queen Alexandra</strong>54% full today · H1 seismic · 1,044 approved homes + 3,300 proposed nearby · catchment not verified — tap to expand</summary>
+    <summary><strong>Queen Alexandra</strong>1,082 new homes → still 74.8% full, does not tip over.<span class="src">Sources: Vancouver School Board figures, 2024/25 · VSB Enrolment Update Report 2025, Jun 16, 2025, Figure 23</span></summary>
     <div class="case-body">
       <div class="statgrid">
         <div class="stat"><strong>54%</strong><span>142 enrolled / 262 capacity · seismic risk H1 · 136 enrolled in 2023/24</span></div>
@@ -222,7 +234,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
   </details>
 
   <details class="case">
-    <summary><strong>Collingwood Kingsway</strong>1,082 homes under review, not approved · nearest elementary closed — tap to expand</summary>
+    <summary><strong>Collingwood Kingsway</strong>1,082 homes next to a closed school — no catchment answer published yet.<span class="src">Sources: As reported by Daily Hive, Nov 19, 2026 · Vancouver School Board (Sir Guy Carleton closure)</span></summary>
     <div class="case-body">
       <p style="margin:14px 0 0">At <strong>3410–3436 Kingsway</strong> (the Safeway site), a rezoning application proposes <strong>1,082 purpose-built secured rental homes in five towers of 19–29 storeys</strong> — as reported by Daily Hive, Nov 19, 2026. The application is <strong>under review — not approved</strong>. Council voted on Nov 17, 2026 only to expand the consultation list; <strong>no public-hearing date has been set</strong>.</p>
       <p style="margin:12px 0 0">The nearest elementary, <strong>Sir Guy Carleton (3250 Kingsway)</strong>, is <strong>closed</strong> — fire in August 2016, and a Vancouver School Board closure bylaw in December 2025.</p>
@@ -241,7 +253,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
     <h3>The rules we apply</h3>
     <p class="muted" style="margin:6px 0 0;font-size:.95rem">First, the source hierarchy already used on this page — then the conflict rules that decide between two figures for the same thing.</p>
     <ul>
-      <li><strong>Source hierarchy:</strong> official district / ministry / city documents first, then the organisation's own announcements, then news reporting, then secondary summaries — a figure is never presented as stronger than its source.</li>
+      <li><strong>Source hierarchy:</strong> official district / ministry / city documents first, then official social media posts (an organisation's own verified account — an announcement, not a published document, above news reporting), then the organisation's own announcements, then news reporting, then secondary summaries — a figure is never presented as stronger than its source.</li>
       <li><strong>Exact beats rounded</strong> — an exact count beats a rounded “more than” figure.</li>
       <li><strong>Primary beats secondary</strong> — a primary enrolment file beats a press summary of it.</li>
       <li><strong>Newest beats oldest when the method is the same</strong> — the more recent set wins over an older one.</li>
@@ -254,26 +266,26 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
   <div class="conflict-grid">
     <article class="conflict-card">
       <h3>Belmont &amp; Royal Bay enrolment</h3>
-      <div class="cf-row"><span class="cf-label">What disagrees</span><p>the public district enrolment table lists <strong>Belmont 1,705 students / 1,200 operating capacity</strong> and <strong>Royal Bay 1,725 / 1,400</strong> — exact per-school counts, Nov 2026. An SD62 October 2025 announcement, as summarised by listingsvictoria.ca, says Belmont and Royal Bay were <strong>“each serving more than 1,800 students”</strong> — rounded, no exact count, secondary summary.</p></div>
-      <div class="cf-row"><span class="cf-label">Rule applied</span><p>Exact beats rounded; a primary enrolment file beats a press summary.</p></div>
-      <div class="cf-row"><span class="cf-label">Recommendation</span><p>Use the exact per-school counts — <strong>Belmont 1,705 / 1,200</strong> and <strong>Royal Bay 1,725 / 1,400</strong>.</p></div>
-      <div class="cf-row"><span class="cf-label">Not used — still shown</span><p><strong>“1,800+ students each”</strong> for Belmont and Royal Bay — SD62 October 2025 announcement, as summarised by listingsvictoria.ca. Shown here, not used in the cases or calculator.</p></div>
+      <div class="cf-row cf-rec"><span class="cf-label">Recommendation</span><p><strong>Use the exact counts: Belmont 1,705 / 1,200 and Royal Bay 1,725 / 1,400.</strong></p></div>
+      <div class="cf-row"><span class="cf-label">What disagrees</span><p>District table: Belmont 1,705 / 1,200; Royal Bay 1,725 / 1,400 — exact, Nov 2026.<br>SD62 announcement, Oct 2025, via summary: “more than 1,800 each” — rounded.</p></div>
+      <div class="cf-row"><span class="cf-label">Rule applied</span><p>Exact beats rounded.<br>Primary beats secondary summary.</p></div>
+      <div class="cf-row"><span class="cf-label">Not used — still shown</span><p>“1,800+ students each” — shown here only.<br>Not used in the cases or calculator.</p></div>
     </article>
 
     <article class="conflict-card">
       <h3>Which projection set to use</h3>
-      <div class="cf-row"><span class="cf-label">What disagrees</span><p>The five projection sets in the VSB Facilities Planning Committee report, 16 June 2025, include <strong>Metro Vancouver, March 2024</strong> (about 15 months old at the report) and <strong>Baragar with Local Knowledge Added, April 2025</strong> (about 2 months old at the report, and the district's preferred model for short- and medium-term planning, per the same report).</p></div>
-      <div class="cf-row"><span class="cf-label">Rule applied</span><p>Newest beats oldest; the district's own preferred model beats a regional model.</p></div>
-      <div class="cf-row"><span class="cf-label">Recommendation</span><p>Use <strong>Baragar with Local Knowledge Added, April 2025</strong>. <strong>Caveat:</strong> no record read states which set governs which determination, so this is a recommendation, not a ruling — and the other four sets stay listed in the “How we know this” projection table.</p></div>
-      <div class="cf-row"><span class="cf-label">Not used — still shown</span><p><strong>Metro Vancouver, March 2024</strong> — the regional projection set, about 15 months old at the June 2025 report. Shown here and in the projection table, not recommended as the set to plan from.</p></div>
+      <div class="cf-row cf-rec"><span class="cf-label">Recommendation</span><p><strong>Use Baragar with Local Knowledge Added, April 2025.</strong><br>Caveat: no record states which set governs — a recommendation, not a ruling.</p></div>
+      <div class="cf-row"><span class="cf-label">What disagrees</span><p>Metro Vancouver, March 2024 — regional, about 15 months old at the report.<br>Baragar + Local Knowledge, April 2025 — about 2 months old, district's preferred model.</p></div>
+      <div class="cf-row"><span class="cf-label">Rule applied</span><p>Newest beats oldest.<br>District's preferred model beats a regional one.</p></div>
+      <div class="cf-row"><span class="cf-label">Not used — still shown</span><p>Metro Vancouver, March 2024 — shown here and in the projection table.<br>Not recommended as the set to plan from.</p></div>
     </article>
 
     <article class="conflict-card">
       <h3>The “400 family-sized homes” at Kingsway</h3>
-      <div class="cf-row"><span class="cf-label">What disagrees</span><p>One Instagram infographic (Oct 22, 2026) says <strong>400 of the 1,082 homes</strong> at Kingsway have two or three bedrooms (about 37%). No independent source was found for that breakdown. The <strong>1,082 total itself stays</strong>, as reported by Daily Hive, Nov 19, 2026.</p></div>
-      <div class="cf-row"><span class="cf-label">Rule applied</span><p>A single unverified source loses to “unknown.”</p></div>
-      <div class="cf-row"><span class="cf-label">Recommendation</span><p>Do <strong>not</strong> publish the 400 figure — show it as <strong>“not verified.”</strong> The bedroom mix at Kingsway is treated as unknown until an independent source confirms it.</p></div>
-      <div class="cf-row"><span class="cf-label">Not used — still shown</span><p><strong>400 family-sized homes (about 37% of 1,082)</strong> — single Instagram infographic, Oct 22, 2026, no independent source found. Shown here as not verified, not used anywhere else on this page.</p></div>
+      <div class="cf-row cf-rec"><span class="cf-label">Recommendation</span><p><strong>Do not publish the 400 figure — show it as “announced on social media, not yet confirmed.”</strong></p></div>
+      <div class="cf-row"><span class="cf-label">What disagrees</span><p>One official Instagram infographic (Oct 22, 2026): 400 of the 1,082 homes have two or three bedrooms (about 37%).<br>It is an official announcement, not a rumour.<br>No published document or second source confirms it.<br>The 1,082 total stays — as reported by Daily Hive, Nov 19, 2026.</p></div>
+      <div class="cf-row"><span class="cf-label">Rule applied</span><p>An official post counts as an announcement, but a single announcement without a second source loses to 'unknown'.</p></div>
+      <div class="cf-row"><span class="cf-label">Not used — still shown</span><p>400 family-sized homes (about 37% of 1,082) — announced on social media, not yet confirmed.<br>Shown here only; the bedroom mix is treated as unknown.</p></div>
     </article>
   </div>
 </section>
@@ -286,7 +298,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
       <p class="muted" style="margin:6px 0 0;max-width:72ch">All supporting material, collapsed by part. Nothing in this section is visible until you open it. Snapshot: Nov 22, 2026. Every forecast is a labelled scenario — not a prediction. Proposed is never shown as decided, and no catchment boundary is asserted until a district publishes it.</p>
 
       <details class="sub">
-        <summary>SD62 review timeline</summary>
+        <summary>SD62 review timeline — survey Nov 23–Dec 4, 2026; decision Spring 2027; new school Fall 2030.</summary>
         <div class="sub-body">
           <p class="muted" style="max-width:72ch">The forecast lands inside a live decision process. SD62's catchment review decides boundaries and pathways while the growth in the cases is already underway — and its relief school does not open until 2030.</p>
           <ol class="tl">
@@ -300,7 +312,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
       </details>
 
       <details class="sub">
-        <summary>Five projection sets &amp; horizons</summary>
+        <summary>Five projection sets &amp; horizons — five sets in one report; no set stated to govern.</summary>
         <div class="sub-body">
           <p style="max-width:72ch">Before asking what a forecast says, ask which forecast it is. A single Vancouver School Board committee report carries <strong>five enrolment projection sets from four producers, produced across a 13-month span</strong> — and no record read for this page states which set governs which determination. <strong>Every set gets a column naming the determination it governs, and a base-date line per producer.</strong> Where the record is silent, the column says so — it is not filled in by guesswork.</p>
           <h3 style="margin-top:18px">Five sets, one report</h3>
@@ -333,7 +345,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
       </details>
 
       <details class="sub">
-        <summary>The 2039 forward view — Cunningham, Weir, MacCorkindale</summary>
+        <summary>The 2039 forward view — Cunningham, Weir and MacCorkindale all projected to fall by 2039.</summary>
         <div class="sub-body">
           <p style="max-width:72ch">This is <strong>the district's published projection</strong> — the Baragar Plus Local Knowledge model, which projects to 2039 only — presented as published. It is <strong>not a forecast of this page</strong>. The utilisation percentages in the last two columns are different: they are <strong>computed from the published figures, not published</strong>, and are labelled that way.</p>
           <table class="data">
@@ -353,7 +365,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
       </details>
 
       <details class="sub">
-        <summary>The money layer — Richmond &amp; Carleton</summary>
+        <summary>The money layer — Richmond's $60M site and Carleton's nine-year holding cost.</summary>
         <div class="sub-body">
           <p class="muted" style="max-width:72ch">Forecasts are not abstract. When a district runs out of room — or holds a building it cannot use — the miss lands in dollars. Two published ledgers, stated exactly as published.</p>
           <h3 style="margin-top:18px">Richmond: a $60 million school site, 90% paid for by selling another school</h3>
@@ -380,7 +392,7 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
       </details>
 
       <details class="sub">
-        <summary>Per-home school charges — charged vs. ceiling</summary>
+        <summary>Per-home school charges — Redmond charges $7,277; BC figures are ceilings only.</summary>
         <div class="sub-body">
           <p style="max-width:72ch">Some jurisdictions charge each new home a set amount toward school capacity. Comparing them honestly means keeping one distinction straight: <strong>an amount actually charged is not the same kind of number as a regulatory ceiling.</strong></p>
           <div class="known">
@@ -421,13 +433,13 @@ footer{padding:38px 0 60px;border-top:1px solid var(--line);font-size:.9rem;colo
       </details>
 
       <details class="sub">
-        <summary>Method note — yields, Baragar &amp; what cannot be forecast yet</summary>
+        <summary>Method note — published yields, Baragar modelling, source hierarchy and what cannot be forecast yet.</summary>
         <div class="sub-body">
           <p style="max-width:72ch">Districts do not guess enrolment. They forecast with <strong>Baragar Systems cohort-survival modelling</strong> — tracking each grade cohort as it moves through the system — combined with <strong>local knowledge: municipal development data and yield assumptions</strong> about how many students new housing will produce. The Vancouver School Board's June 2025 enrolment update, for example, compares <strong>five scenarios</strong> and publishes a <strong>2039 utilisation map</strong> — inside a board agenda PDF.</p>
           <span class="flabel">Forecast label — End year: 2039 · Producer: Vancouver School Board · Produced: 16 Jun 2025 (Enrolment Update Report 2025)</span>
           <p style="max-width:72ch;margin-top:14px">The yield calculator carries its own label: <strong>no end year</strong> — it is a scenario tool, not a dated forecast. Its yield rates were <strong>produced by the Vancouver School Board on 16 Jun 2025</strong> (Enrolment Update Report 2025, Figure 23).</p>
           <div class="principle"><strong>There is no single provincial yield factor.</strong> Districts publish ranges and scenarios, not one number — so every forecast on this page, including everything the calculator produces, is a <strong>scenario, not a prediction</strong>.</div>
-          <p style="max-width:72ch;margin-top:14px"><strong>Source hierarchy:</strong> official district / ministry / city documents first, then the organisation's own announcements, then news reporting, then secondary summaries — a figure is never presented as stronger than its source.</p>
+          <p style="max-width:72ch;margin-top:14px"><strong>Source hierarchy:</strong> official district / ministry / city published documents first, then official social media posts (an organisation's own verified account) count as the organisation's own announcement — but an announcement, not a published document, so they rank below published documents and above news reporting; a figure that exists only in one social post is 'announced, not yet confirmed' until a second source confirms it. Then the organisation's other own announcements, then news reporting, then secondary summaries — a figure is never presented as stronger than its source.</p>
           <h3 style="margin-top:18px">Published yield rates used here</h3>
           <table class="yield">
             <thead><tr><th>Housing type</th><th class="num">Students per home</th><th>Notes</th></tr></thead>
